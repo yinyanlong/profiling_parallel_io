@@ -13,6 +13,8 @@ Date: March 6th, 2014
     
 # Building IOR with IOSIG
 
+    $ export IOSIG_CFLAGS="-w -finstrument-functions"
+    $ export IOSIG_LDFLAGS="-L${IOSIG_HOME}/src/collect -liosig -Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64"
     $ ./configure
 
 # Run with POSIX
@@ -22,6 +24,10 @@ Date: March 6th, 2014
 # Run with MPIIO
 
     $ mpiexec -np 4 ior -a MPIIO -b 24m -o /tmp/datafile -w -k -t 4k
+
+# Uninstall
+
+    $ make uninstall
 
 
 

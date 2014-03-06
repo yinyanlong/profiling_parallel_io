@@ -1,0 +1,2 @@
+SUBDIRS = src doc contrib
+EXTRA_DIST = META COPYRIGHT README ChangeLog

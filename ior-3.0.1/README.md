@@ -26,7 +26,14 @@ Date: March 6th, 2014
 
 # Run with MPIIO
 
-    $ mpiexec -np 4 ior -a MPIIO -b 24m -o /tmp/datafile -w -k -t 4k
+Write some data:
+
+    $ mpiexec -np 4 ior -a MPIIO -b 256m -o ${LOCAL_STORAGE}/datafile -w -k -t 64k
+
+Read the data:
+
+    # clear cache if necessary
+    $ mpiexec -np 4 ior -a MPIIO -b 256m -o ${LOCAL_STORAGE}/datafile -r -k -t 64k
 
 # Uninstall
 

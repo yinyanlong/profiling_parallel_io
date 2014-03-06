@@ -14,8 +14,11 @@ Date: March 6th, 2014
 # Building IOR with IOSIG
 
     $ export IOSIG_CFLAGS="-w -finstrument-functions"
-    $ export IOSIG_LDFLAGS="-L${IOSIG_HOME}/src/collect -liosig -Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64"
-    $ ./configure
+    $ export IOSIG_LDFLAGS="-Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64 -L${IOSIG_HOME}/src/collect"
+    $ export CFLAGS="${CFLAGS} ${IOSIG_CFLAGS}"
+    $ export LDFLAGS="${LDFLAGS} ${IOSIG_LDFLAGS}"
+    $ export LIBS="-liosig"
+    $ ./configure --prefix=${INSTALL} 
 
 # Run with POSIX
 

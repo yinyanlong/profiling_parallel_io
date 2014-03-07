@@ -1,9 +1,12 @@
-Title: README for the project `profiling_parallel_io`  
+Title:  Profiling `ior` benchmark
 Author: Yanlong Yin  
-Date: March 6th, 2014  
+Date:   March 6th, 2014  
 
+# To get IOR
 
-# Building the default IOR
+Official website: https://github.com/chaos/ior/releases
+
+# To build the default IOR
 
     $ ./configure --prefix=${INSTALL}
     $ make
@@ -11,7 +14,7 @@ Date: March 6th, 2014
     $ cd ./src; install ior ${INSTALL}/bin    # do this if last command failed
     $ ior -h                                  # make sure ${INSTALL}/bin is in $PATH
     
-# Building IOR with IOSIG
+# To build IOR with IOSIG
 
     $ export IOSIG_CFLAGS="-w -finstrument-functions"
     $ export IOSIG_LDFLAGS="-Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64 -L${IOSIG_HOME}/src/collect"
@@ -20,11 +23,11 @@ Date: March 6th, 2014
     $ export LIBS="-liosig"
     $ ./configure --prefix=${INSTALL} 
 
-# Run with POSIX
+# To run with POSIX
 
     $ ior -a POSIX -b 24m -o /tmp/datafile -w -k -t 4k
 
-# Run with MPIIO
+# To run with MPIIO
 
 Write some data:
 
@@ -35,7 +38,7 @@ Read the data:
     # clear cache if necessary
     $ mpiexec -np 4 ior -a MPIIO -b 256m -o ${LOCAL_STORAGE}/datafile -r -k -t 64k
 
-# Uninstall
+# To uninstall
 
     $ make uninstall
 

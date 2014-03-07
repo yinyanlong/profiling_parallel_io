@@ -9,6 +9,8 @@ Website: http://www.mcs.anl.gov/research/projects/pio-benchmark/
 # Building `mpi-tile-io`
 
     $ make -f Makefile.linux
+    
+Check the Makefile to make sure you use the right `mpicc`.
 
 # Building `mpi-tile-io` with IOSIG
 

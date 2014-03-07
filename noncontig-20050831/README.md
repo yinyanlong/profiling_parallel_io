@@ -21,6 +21,6 @@ Check `Makefile.iosig` for more details on enabling IOSIG.
 
 # Running the benchmark
 
-    $ mpirun -np 4 ./
+    $ mpirun -np 4 ./noncontig -fname ${LOCAL_STORAGE}/datafile -fsize 1024 -all -elmtcount 256 -veclen 16 -offset 0
     
 

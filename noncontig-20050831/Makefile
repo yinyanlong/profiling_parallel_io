@@ -1,8 +1,5 @@
-CC=${HOME}/mpich2/bin/mpicc
+CC=mpicc
 CFLAGS=-Wall -g
-
-#CC=mpicc
-#CFLAGS=-Wall -g
 
 noncontig: noncontig.o parse_cmdline.o
 

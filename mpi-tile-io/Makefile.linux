@@ -1,4 +1,4 @@
-CC=/sandbox/rross/bin/mpicc
+CC=mpicc
 CFLAGS=-Wall -g -DHAVE_GETOPT_LONG
 
 all: mpi-tile-io

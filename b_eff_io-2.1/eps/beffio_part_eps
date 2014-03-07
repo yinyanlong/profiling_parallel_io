@@ -1,0 +1,76 @@
+#!/bin/sh
+NP=$1
+PREFIX=$2
+
+rm -f xyztmp_beffio_* ${PREFIX}_${NP}_*
+
+sed -n -e "/Sum.* $NP proc/,/these.* $NP proc/p" ${PREFIX}.sum | \
+sed -e 's/PEs 7/PEs 10/' -e 's/PEs 6/PEs 8/' -e 's/PEs 5/PEs 7/' \
+-e 's/PEs 4/PEs 5/' -e 's/PEs 3/PEs 4/' > xyztmp_beffio_prot
+
+grep "  set " xyztmp_beffio_prot > xyztmp_beffio_gnuloads
+
+if grep -q "total-rewrite.*- *- *- *-" xyztmp_beffio_prot
+then
+  gnuplot beffio_part_eps.gnuplot
+else
+  gnuplot beffio_part_eps_rewrt.gnuplot
+fi
+
+latex beffio_part_eps_on1page.tex 2>&1 > /dev/null
+dvips -t letter -o ${PREFIX}_${NP}_on1page.ps beffio_part_eps_on1page.dvi 2>&1 > /dev/null
+
+mv xyztmp_beffio_write_mono.eps     ${PREFIX}_${NP}_write_mono.eps
+mv xyztmp_beffio_rewrt_mono.eps     ${PREFIX}_${NP}_rewrt_mono.eps
+mv xyztmp_beffio_read_mono.eps      ${PREFIX}_${NP}_read_mono.eps
+mv xyztmp_beffio_type0_sca_mono.eps ${PREFIX}_${NP}_type0_sca_mono.eps
+mv xyztmp_beffio_type1_sha_mono.eps ${PREFIX}_${NP}_type1_sha_mono.eps
+mv xyztmp_beffio_type2_sep_mono.eps ${PREFIX}_${NP}_type2_sep_mono.eps
+mv xyztmp_beffio_type3_seg_mono.eps ${PREFIX}_${NP}_type3_seg_mono.eps
+mv xyztmp_beffio_type4_sgc_mono.eps ${PREFIX}_${NP}_type4_sgc_mono.eps
+
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+      xyztmp_beffio_write_color.eps > ${PREFIX}_${NP}_write_color.eps
+rm -f xyztmp_beffio_write_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+      xyztmp_beffio_rewrt_color.eps > ${PREFIX}_${NP}_rewrt_color.eps
+rm -f xyztmp_beffio_rewrt_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+      xyztmp_beffio_read_color.eps  > ${PREFIX}_${NP}_read_color.eps
+rm -f xyztmp_beffio_read_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+     xyztmp_beffio_type0_sca_color.eps > ${PREFIX}_${NP}_type0_sca_color.eps
+rm -f xyztmp_beffio_type0_sca_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+     xyztmp_beffio_type1_sha_color.eps > ${PREFIX}_${NP}_type1_sha_color.eps
+rm -f xyztmp_beffio_type1_sha_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+     xyztmp_beffio_type2_sep_color.eps > ${PREFIX}_${NP}_type2_sep_color.eps
+rm -f xyztmp_beffio_type2_sep_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+     xyztmp_beffio_type3_seg_color.eps > ${PREFIX}_${NP}_type3_seg_color.eps
+rm -f xyztmp_beffio_type3_seg_color.eps
+sed -e 's/gnulinewidth 5/gnulinewidth 20/' \
+     xyztmp_beffio_type4_sgc_color.eps > ${PREFIX}_${NP}_type4_sgc_color.eps
+rm -f xyztmp_beffio_type4_sgc_color.eps
+
+#mv xyztmp_beffio_write_color.eps     ${PREFIX}_${NP}_write_color.eps
+#mv xyztmp_beffio_rewrt_color.eps     ${PREFIX}_${NP}_rewrt_color.eps
+#mv xyztmp_beffio_read_color.eps      ${PREFIX}_${NP}_read_color.eps
+#mv xyztmp_beffio_type0_sca_color.eps ${PREFIX}_${NP}_type0_sca_color.eps
+#mv xyztmp_beffio_type1_sha_color.eps ${PREFIX}_${NP}_type1_sha_color.eps
+#mv xyztmp_beffio_type2_sep_color.eps ${PREFIX}_${NP}_type2_sep_color.eps
+#mv xyztmp_beffio_type3_seg_color.eps ${PREFIX}_${NP}_type3_seg_color.eps
+#mv xyztmp_beffio_type4_sgc_color.eps ${PREFIX}_${NP}_type4_sgc_color.eps
+
+mv xyztmp_beffio_write_color.png     ${PREFIX}_${NP}_write_color.png
+mv xyztmp_beffio_rewrt_color.png     ${PREFIX}_${NP}_rewrt_color.png
+mv xyztmp_beffio_read_color.png      ${PREFIX}_${NP}_read_color.png
+mv xyztmp_beffio_type0_sca_color.png ${PREFIX}_${NP}_type0_sca_color.png
+mv xyztmp_beffio_type1_sha_color.png ${PREFIX}_${NP}_type1_sha_color.png
+mv xyztmp_beffio_type2_sep_color.png ${PREFIX}_${NP}_type2_sep_color.png
+mv xyztmp_beffio_type3_seg_color.png ${PREFIX}_${NP}_type3_seg_color.png
+mv xyztmp_beffio_type4_sgc_color.png ${PREFIX}_${NP}_type4_sgc_color.png
+
+rm -f xyztmp_beffio_gnuloads xyztmp_beffio_prot beffio_part_eps_on1page.aux \
+beffio_part_eps_on1page.dvi beffio_part_eps_on1page.log

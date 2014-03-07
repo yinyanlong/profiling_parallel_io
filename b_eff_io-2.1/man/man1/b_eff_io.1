@@ -1,0 +1,279 @@
+.TH "b_eff_io" "1" "04/11/2002" "Felix Triebel" "MPI I/O benchmark"
+.SH "NAME"
+b_eff_io \- Effective parallel MPI file I/O benchmark
+.SH "DESCRIPTION"
+The effective I/O bandwidth benchmark (b_eff_io) covers two goals:
+.br 
+(1) to achieve a characteristic average number for the I/O bandwidth
+achievable with parallel MPI\-I/O applications
+.br 
+(2) to get
+detailed information about several access patterns and buffer lengths.
+The benchmark examines "first write", "rewrite" and "read" access,
+strided (individual and shared pointers) and segmented collective
+patterns on one file per application and non\-collective access
+to one file per process. The number of parallel accessing processes
+is also varied and wellformed I/O is compared with non\-wellformed.
+On systems, meeting the rule that the total memory can be written to
+disk in 10 minutes, the benchmark should not need more than
+15 minutes for a first pass of all patterns.
+The benchmark is designed analogously to the effective
+bandwidth benchmark for message passing (b_eff)
+that characterizes the message passing capabilities of a system in
+a few minutes.
+
+.SH "SYNOPSIS"
+.TP 8
+.B mpicc 
+.B \-o b_eff_io 
+[\c
+.B \-D WITHOUT_SHARED\c 
+] 
+.B b_eff_io.c \-lm
+
+.TP 8
+.B mpirun 
+.BI \-np "\ number_of_MPI_processes 
+.B ./b_eff_io 
+.BI \-MB "\ number_of_megabytes_memory_per_node
+.BI \-MT "\ number_of_megabytes_memory_of_the_total_system
+[\c
+.B \-noshared\c
+] [\c
+.B \-nounique\c
+] [\c
+.B \-rewrite\c
+] [\c
+.B \-keep\c
+] [\c
+.BI \-N "\ \fInumber_of_processes\fR[,\fInumber_of_processes\fR[,...]]\c
+] [\c
+.BI \-T "\ scheduled_time\c
+] [\c
+.BI \-p "\ path_of_fast_filesystem\c
+] [\c
+.BI \-i "\ info_file\c
+] [\c
+.BI \-e "\ number_of_errors\c
+] [\c
+.BI \-f "\ protocol_files'_prefix\c
+]
+
+or
+ 
+.TP 8
+.B mpiexec 
+.BI \-n "\ number_of_MPI_processes 
+.B ./b_eff_io 
+.BI \-MB "\ number_of_megabytes_memory_per_node
+.BI \-MT "\ number_of_megabytes_memory_of_the_total_system
+.BR 
+[ other options see mpirun above ] 
+ 
+
+.SH "GENERAL COMPILE TIME OPTIONS"
+.TP 0.6i
+.B \-D WITHOUT_SHARED
+to substitute the shared file pointer by individual file pointers
+(implies runtime option 
+.B \-noshared\c
+)
+
+.SH "RUNTIME OPTIONS"
+.TP 0.6i
+.BI \-np "\ number_of_MPI_processes  
+(mpirun option, see man 
+.B mpirun
+)
+defines the number of MPI processes started for this benchmark. 
+
+.TP 
+.BI \-MB "\ number_of_megabytes_memory_per_node
+(mandatory)
+A node is defined as the unit used by or useable for one MPI
+process. This value is used to compute the maximum chunk size
+for the patterns 1, 10, 18, 26 and 35.
+The maximum chunk size is defined as max( 2MB, memory per node / 128).
+
+.TP 
+.BI \-MT "\ number_of_megabytes_memory_of_the_total_system
+(mandatory)
+This value is used to compute the ratio of transferred bytes to the size of the
+total memory.
+
+.TP 
+.B \-noshared
+to substitute the shared file pointer by individual file pointers in 
+pattern type 1 (implied by the compile time option 
+.B \-D WITHOUT_SHARED\c
+).
+
+.TP 
+.B \-nounique
+to remove MPI_MODE_UNIQUE_OPEN on each file opening
+(on some system, this option allows some MPI optimizations) 
+
+.TP 
+.B \-rewrite
+do rewrite between write and read for all patterns
+
+.TP 
+.B \-keep
+to keep all benchmarking files on close after last pattern test
+
+.TP 
+.BI \-N "\ \fInumber_of_processes\fR[,\fInumber_of_processes\fR[,...]]
+defines the partition sizes used for this benchmark (default: see Default
+Partition Sizes)
+
+.TP 
+.BI \-T "\ scheduled_time
+scheduled time for all partitions of processes N (default = 1800 [seconds], see
+also option \-N).
+
+.TP 
+.BI \-p "\ path_of_fast_filesystem
+path of the filesystem that should be benchmarked, i.e. where this
+benchmarks should write its scratch files
+(default is the current directory).
+
+.TP 
+.BI \-i "\ info_file
+file containing file hints, see section Info File Format below (default is to
+use no hints, i.e., to use only MPI_INFO_NULL). Using \-i, the really used hints
+are printed in the \fIprefix\fR.prot protocol file. The default hints can be viewed
+by using \-i with an empty info\-file.
+
+.TP 
+.BI \-e "\ number_of_errors
+maximum of errors printed in each pattern (default = 1).
+
+.TP 
+.BI \-f "\ protocol_files'_prefix
+prefix of the protocol file and the summary file. The protocol and summary will
+be named \fIprefix\fR.prot and \fIprefix\fR.sum (default \fIprefix\fR =
+b_eff_io).
+.SH "REMARKS"
+Already existing scratch files are automatically removed before
+benchmarking is started.
+
+If the result should be used for comparing different systems, the
+benchmark is only valid if the following criterions are reached:
+.TP 0.6i 
+.B (1)
+T >= 1800 sec,
+.TP 
+.B (2)
+the option 
+.B \-noshared 
+is NOT used, and
+.TP 
+.B (3)
+no errors are reported.
+
+.SH "RESOURCES"
+.TP 0.6i
+Time:
+The user might expect that this benchmark would need the scheduled time, defined
+with the option \fB\-T\fR, or the sum of the scheduled time values of several
+partitions, defined by the options \fB\-T\fR and \fB\-N\fR. But, due to
+several reasons, this benchmark could need much more time (2x \- 4x).
+Reasons are:
+
+.TP 0.9i
+(1)
+The sync operation is outside of the time\-driven loop and might consume time
+after the scheduled iterations.
+.TP 0.9i
+(2)
+The loop is finished by an iteration that consumed much more time than the
+previous iterations.
+.TP 0.9i
+(3)
+The pattern types 3 (segmented) and 4 (seg\-coll) are not time\-driven. The
+estimation for adequate repeating factors is based on results with pattern
+types 0\-2. This estimation might be to high if the implementation of pattern
+types 3 and 4 is worse than that of pattern type 0 and 2.
+.TP 0.9i
+(4)
+The same reason is valid for all patterns with the access methods "rewrite"
+and "read".
+
+.TP 0.6i
+Size of scratch data on disk:
+On the disk defined with the option \fB\-p\fR, the size of the data written by
+this benchmark is about real_execution_time *accumulated_write_bandwidth /3.
+
+.TP 0.6i
+Memory buffer space:
+b_eff_io needs N * max(4MBytes, memory_per_node/64) memory
+for its buffers.
+
+.SH "POSTPROCESSING"
+\fBbeffio_eps\fR generates diagrams of the summary protocol file given.
+
+Synopsis: beffio_eps [ \fIprotocol_file_prefix\fR ] (default=b_eff_io)
+
+Output:
+.TP 0.6i
+black/white diagrams, e.g., for publication:
+\fIprefix\fR_(np)_(write, rewrt, read, type0_sca, type1_sha, type2_sep, type3_seg and type4_sgc)_mono.eps,
+\fIprefix\fR_(write, rewrt, read)_mono.eps
+
+.TP 0.6i
+if dvips is available, a summary sheet of these diagrams:
+\fIprefix\fR_(np)_on1page.ps
+
+.TP 0.6i
+colored diagrams with thick lines, e.g., for slides:
+\fIprefix\fR_(np)_(write, rewrt, read, type0_sca, type1_sha, type2_sep, type3_seg and type4_sgc)_color.(eps and png),
+\fIprefix\fR_(write, rewrt, read)_color.(eps and png)
+.SH "EXAMPLES"
+.nf 
+ CRAY T3E:  
+   Prerequisites: using moduls mpt
+   Compilation on T3E :
+     cc \-o b_eff_io \-D WITHOUT_SHARED b_eff_io.c
+     cc \-o b_eff_io \-D WITHOUT_SHARED b_eff_io.c \\
+        ../ufs_t3e/ad_ufs_open.o ../ufs_t3e/ad_ufs_read.o \\
+        ../ufs_t3e/ad_ufs_write.o
+     cc \-o b_eff_io \-D WITHOUT_SHARED b_eff_io.c \\
+        ../ufs_t3e/ad_ufs_*.o
+   Execution: export MPI_BUFFER_MAX=4099
+   T3E\-900 with 128 MB/processor and 512 PEs:
+     mpirun \-np 64 ./b_eff_io \-MB 128 \-MT 65536 \\
+            \-p $SCRDIR \-f b_eff_io_T3E900_064PE
+   T3E\-1200 with 512 MB/processor and 512:
+     mpirun \-np 64 ./b_eff_io \-MB 512 \-MT 262144 \\
+            \-p $SCRDIR \-f b_eff_io_T3E1200_064PE
+ 
+ SX\-4:
+   Prerequisites: \-
+   Compilation on SX\-4/32 with 256 MB/processor:
+     mpicc \-o b_eff_io b_eff_io.c \-lm
+   Execution:
+     mpirun \-np 8 ./b_eff_io \-MB 256 \-MT 8192 \\
+            \-p $SCRDIR \-f b_eff_io_SX4_08PE
+ 
+ Postprocessing (on local workstation):
+     b_eff_io_eps 64 b_eff_io_T3E900_064PE
+     b_eff_io_eps 64 b_eff_io_T3E1200_064PE
+     b_eff_io_eps  8 b_eff_io_SX4_08PE
+ 
+ Outputfiles:
+     b_eff_io_T3E900_064PE.sum       human readable summary
+                          .prot      full benchmark protocol
+                          _*_mono.eps   diagrams black/white
+                          _*_color.eps  colored, for slides
+     Same for b_eff_io_T3E1200_064PE and b_eff_io_SX4_08PE.
+.fi  
+
+.SH "SEE ALSO"
+.LP 
+.BR mpi (1),
+.BR mpirun (1), 
+.BR mpiexec (1), 
+.BR mpicc (1), 
+.BR www.hlrs.de/mpi/b_eff_io/
+.BR www.hlrs.de/mpi/b_eff/
+.BR www.hlrs.de/mpi/mpi_t3e.html#StripedIO 

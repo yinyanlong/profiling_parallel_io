@@ -1,0 +1,61 @@
+#!/bin/sh
+#
+# Synopsis: beffio_eps <PREFIX>
+#
+# Input:  file     <PREFIX>.sum     (default=b_eff_io)
+#
+# Output: <PREFIX>_<NP>_write_mono.eps
+#         <PREFIX>_<NP>_rewrt_mono.eps
+#         <PREFIX>_<NP>_read_mono.eps
+#         <PREFIX>_<NP>_type0_sca_mono.eps
+#         <PREFIX>_<NP>_type1_sha_mono.eps
+#         <PREFIX>_<NP>_type2_sep_mono.eps
+#         <PREFIX>_<NP>_type3_seg_mono.eps
+#         <PREFIX>_<NP>_type4_sgc_mono.eps
+#
+#         <PREFIX>_<NP>_write_color.eps
+#         <PREFIX>_<NP>_rewrt_color.eps
+#         <PREFIX>_<NP>_read_color.eps
+#         <PREFIX>_<NP>_type0_sca_color.eps
+#         <PREFIX>_<NP>_type1_sha_color.eps
+#         <PREFIX>_<NP>_type2_sep_color.eps
+#         <PREFIX>_<NP>_type3_seg_color.eps
+#         <PREFIX>_<NP>_type4_sgc_color.eps
+#
+#         <PREFIX>_<NP>_write_color.png
+#         <PREFIX>_<NP>_rewrt_color.png
+#         <PREFIX>_<NP>_read_color.png
+#         <PREFIX>_<NP>_type0_sca_color.png
+#         <PREFIX>_<NP>_type1_sha_color.png
+#         <PREFIX>_<NP>_type2_sep_color.png
+#         <PREFIX>_<NP>_type3_seg_color.png
+#         <PREFIX>_<NP>_type4_sgc_color.png
+
+PREFIX=${1:-b_eff_io}
+if [ ! -r $PREFIX.sum ] ; then
+  echo "Error:   $PREFIX.sum is not readable"
+  echo 'Synopis: beffio_eps PREFIX'
+  echo 'e.g.     beffio_eps prefix_of_my_protocols'
+  exit 1
+fi
+
+awk -f beffio_part_eps.awk $PREFIX.sum
+
+if grep -q "total-rewrite.*- *- *- *-" ntmp_beffio_rewrite
+then
+  gnuplot beffio_n_eps.gnuplot
+else
+  gnuplot beffio_n_eps_rewrt.gnuplot
+fi
+
+mv ntmp_beffio_write_mono.eps ${PREFIX}_write_mono.eps
+mv ntmp_beffio_rewrt_mono.eps ${PREFIX}_rewrt_mono.eps
+mv ntmp_beffio_read_mono.eps ${PREFIX}_read_mono.eps
+mv ntmp_beffio_write_color.eps ${PREFIX}_write_color.eps
+mv ntmp_beffio_rewrt_color.eps ${PREFIX}_rewrt_color.eps
+mv ntmp_beffio_read_color.eps ${PREFIX}_read_color.eps
+mv ntmp_beffio_write_color.png ${PREFIX}_write_color.png
+mv ntmp_beffio_rewrt_color.png ${PREFIX}_rewrt_color.png
+mv ntmp_beffio_read_color.png ${PREFIX}_read_color.png
+
+rm -f ntmp_beffio_*

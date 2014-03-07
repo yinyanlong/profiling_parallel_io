@@ -1,0 +1,45 @@
+\documentclass[]{article}
+\usepackage{epsfig}
+
+% printing:
+%  latex beffio_eps_on1page
+%  dvips -t letter -o beffio_eps_on1page.ps beffio_eps_on1page.dvi
+
+\setlength{\topmargin}{-15mm} 
+\setlength{\textheight}{250mm} 
+\setlength{\oddsidemargin}{-10mm} 
+\setlength{\textwidth}{180mm} 
+\begin{document}
+\pagestyle{empty}
+
+\begin{figure*}[tp]
+{\footnotesize
+\begin{center}
+\epsfig{file=xyztmp_beffio_write_mono.eps,width=57mm}\hspace{2.5mm}%
+\epsfig{file=xyztmp_beffio_rewrt_mono.eps,width=57mm}
+\\[3pt]
+\epsfig{file=xyztmp_beffio_read_mono.eps,width=57mm}
+\\
+(a) Pattern results for each access method: first write, rewrite, and read. 
+\\[3pt]
+\epsfig{file=xyztmp_beffio_type0_sca_mono.eps,width=57mm}\hspace{2.5mm}%
+\epsfig{file=xyztmp_beffio_type1_sha_mono.eps,width=57mm}\hspace{2.5mm}%
+\epsfig{file=xyztmp_beffio_type2_sep_mono.eps,width=57mm}
+\\[3pt]
+\epsfig{file=xyztmp_beffio_type3_seg_mono.eps,width=57mm}\hspace{2.5mm}%
+\epsfig{file=xyztmp_beffio_type4_sgc_mono.eps,width=57mm}
+\\
+(b) Same results plotted for the five different pattern types.
+\end{center}
+}%\footnotesize
+\vspace*{-6pt}
+\begin{center}
+Fig.:
+% \caption{%
+b\_eff\_io results for each pattern plotted twice: 
+for the different (a) access methods and (b) pattern types.
+% }%caption
+\end{center}
+\end{figure*}
+
+\end{document}

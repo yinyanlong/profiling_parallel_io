@@ -8,6 +8,14 @@ Official website: https://github.com/chaos/ior/releases
 
 # To build the default IOR
 
+Quoted from the official user guide:
+
+> If "configure" is missing from the top level directory, you
+   probably retrieved this code directly from the repository.
+   Run "./bootstrap". If your versions of the autotools are not new enough to run
+   this script, download and official tarball in which the
+   configure script is already provided.
+
     $ ./configure --prefix=${INSTALL}
     $ make
     $ make install

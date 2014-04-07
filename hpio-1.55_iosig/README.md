@@ -8,7 +8,7 @@ Website: http://users.eecs.northwestern.edu/~aching/research_webpage/hpio.html
 
 # Building `HPIO`
 
-    $ make -f Makefile.linux
+    $ make
     
 Check the Makefile to make sure you use the right `mpicc`.
 

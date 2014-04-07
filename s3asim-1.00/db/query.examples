@@ -1,0 +1,16 @@
+Summary of characteristics of example databases
+
+NT:
+
+Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+   6      435      780     4401     1484 43260000
+
+NR:
+
+Min.  1st Qu.    Median     Mean  3rd Qu.    Max.
+  6      143        261      341     427    34350
+
+yeast:
+
+Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+25.0   206.0    381.0      472.2   607.8   4910.0

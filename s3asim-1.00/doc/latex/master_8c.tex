@@ -1,0 +1,26 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master.c File Reference}
+\label{master_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master.c}}
+{\tt \#include \char`\"{}master.h\char`\"{}}\par
+{\tt \#include \char`\"{}master\_\-help.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{master} (int myid, int numprocs, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{master.c@{master.c}!master@{master}}
+\index{master@{master}!master.c@{master.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int master (int {\em myid}, int {\em numprocs}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master_8c_c390bba10a532460b92d0cd37778087a}
+
+
+This handles the high-level functions of the master process during the majority of the application run. There is a setup phase, followed by a work phase, and then cleanup operations.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}

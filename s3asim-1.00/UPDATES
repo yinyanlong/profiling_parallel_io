@@ -1,0 +1,45 @@
+2007.05.19 - Cleaned up some code.  Added doxygen 'doc' and the HPDC
+paper.
+
+2007.04.19 - Fixed vsnprintf warning temporarily.  Removing all hints
+from s3asim to get added through a generic hints interface.  Cleaned
+up more memory issues.
+
+2007.04.08 - Cleaned up compilation for mpich2-1.0.5p3.  Still one
+warning for vsnprintf.  Added new atomicity option and updated PVFS2 hints.
+
+2006.06.30 - Fixed some ^M characters in the src directory.  Fixed the
+format of the UPDATES and VERSION file for easier generation of
+releases.
+
+2006.04.10 - Changed the noncontiguous parallel writes to use the disp
+in MPI_File_set_view to allow larger than 2 GByte files.  However,
+within a single I/O call, the last offset must be within 2 GBytes of
+the first offset.
+
+2005.09.22 - Fixed a bunch of memory leaks.  Should be memory leak free.
+
+2005.08.31 - Fixed the exiting for no history.  Fixed the histogram
+distribution to be pseudo random.
+
+2005.07.21 - We now can use the histogram style size distribution for
+both the query sizes and the sequence sizes.
+
+2005.07.20 - Added a README and reorganized source code
+
+2005.07.19 - You can use a db_file to add histogram parameters.  Just
+add -b hit.txt where the format of the file is
+
+box_count
+range_end   count
+range_end   count
+...
+
+i.e. 
+
+2
+100	123098
+200	12
+
+2005.07.06 - s3asim can be verified by running ./run_verify_all.sh.
+The entire program should work without any trouble.

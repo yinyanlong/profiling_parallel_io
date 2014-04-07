@@ -1,0 +1,219 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom\_\-debug.h File Reference}
+\label{custom__debug_8h}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom_debug.h@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom\_\-debug.h}}
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdarg.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$time.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{NO\_\-DEBUG}~(uint64\_\-t)0
+\item 
+\#define \bf{MASTER}~((uint64\_\-t)1 $<$$<$ 0)
+\item 
+\#define \bf{WORKER}~((uint64\_\-t)1 $<$$<$ 1)
+\item 
+\#define \bf{MASTER\_\-MSG}~((uint64\_\-t)1 $<$$<$ 2)
+\item 
+\#define \bf{WORKER\_\-MSG}~((uint64\_\-t)1 $<$$<$ 3)
+\item 
+\#define \bf{MASTER\_\-ERR}~((uint64\_\-t)1 $<$$<$ 4)
+\item 
+\#define \bf{WORKER\_\-ERR}~((uint64\_\-t)1 $<$$<$ 5)
+\item 
+\#define \bf{MASTER\_\-COMPUTE}~((uint64\_\-t)1 $<$$<$ 6)
+\item 
+\#define \bf{WORKER\_\-COMPUTE}~((uint64\_\-t)1 $<$$<$ 7)
+\item 
+\#define \bf{MASTER\_\-IO}~((uint64\_\-t)1 $<$$<$ 8)
+\item 
+\#define \bf{WORKER\_\-IO}~((uint64\_\-t)1 $<$$<$ 9)
+\item 
+\#define \bf{MASTER\_\-ISEND}~((uint64\_\-t)1 $<$$<$ 10)
+\item 
+\#define \bf{WORKER\_\-ISEND}~((uint64\_\-t)1 $<$$<$ 11)
+\item 
+\#define \bf{MASTER\_\-IRECV}~((uint64\_\-t)1 $<$$<$ 12)
+\item 
+\#define \bf{WORKER\_\-IRECV}~((uint64\_\-t)1 $<$$<$ 13)
+\item 
+\#define \bf{MASTER\_\-GATHER}~((uint64\_\-t)1 $<$$<$ 14)
+\item 
+\#define \bf{WORKER\_\-GATHER}~((uint64\_\-t)1 $<$$<$ 15)
+\item 
+\#define \bf{MASTER\_\-RAND}~((uint64\_\-t)1 $<$$<$ 16)
+\item 
+\#define \bf{WORKER\_\-RAND}~((uint64\_\-t)1 $<$$<$ 17)
+\item 
+\#define \bf{MSG\_\-ALL}~(uint64\_\-t) (MASTER\_\-MSG + WORKER\_\-MSG)
+\item 
+\#define \bf{MASTER\_\-ALL}
+\item 
+\#define \bf{WORKER\_\-ALL}
+\item 
+\#define \bf{DEBUG\_\-ALL}~(uint64\_\-t) (MASTER\_\-ALL + WORKER\_\-ALL)
+\item 
+\#define \bf{DEBUG\_\-BUF\_\-SIZE}~1024
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{custom\_\-debug} (uint64\_\-t mask, const char $\ast$format,...)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{custom_debug.h@{custom\_\-debug.h}!DEBUG_ALL@{DEBUG\_\-ALL}}
+\index{DEBUG_ALL@{DEBUG\_\-ALL}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-ALL~(uint64\_\-t) (MASTER\_\-ALL + WORKER\_\-ALL)}\label{custom__debug_8h_41d588ee907c299c7a790964deeef02d}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!DEBUG_BUF_SIZE@{DEBUG\_\-BUF\_\-SIZE}}
+\index{DEBUG_BUF_SIZE@{DEBUG\_\-BUF\_\-SIZE}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\_\-BUF\_\-SIZE~1024}\label{custom__debug_8h_758f9da8805a79adbe236829c3802703}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER@{MASTER}}
+\index{MASTER@{MASTER}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER~((uint64\_\-t)1 $<$$<$ 0)}\label{custom__debug_8h_3fa2d3bf1901157f734a584d47b25d8b}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_ALL@{MASTER\_\-ALL}}
+\index{MASTER_ALL@{MASTER\_\-ALL}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-ALL}\label{custom__debug_8h_165618660db88c8202f2a408b96abe75}
+
+
+\textbf{Value:}
+
+\begin{Code}\begin{verbatim}(uint64_t) (MASTER + MASTER_MSG + MASTER_ERR \
+                                            + MASTER_COMPUTE + MASTER_IO \
+                                            + MASTER_ISEND + MASTER_IRECV \
+                                            + MASTER_GATHER + MASTER_RAND)
+\end{verbatim}\end{Code}
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_COMPUTE@{MASTER\_\-COMPUTE}}
+\index{MASTER_COMPUTE@{MASTER\_\-COMPUTE}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-COMPUTE~((uint64\_\-t)1 $<$$<$ 6)}\label{custom__debug_8h_113fed9738d43fd24e9280373fee1a70}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_ERR@{MASTER\_\-ERR}}
+\index{MASTER_ERR@{MASTER\_\-ERR}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-ERR~((uint64\_\-t)1 $<$$<$ 4)}\label{custom__debug_8h_1c24a8277f860d01b547f8a7d1f00658}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_GATHER@{MASTER\_\-GATHER}}
+\index{MASTER_GATHER@{MASTER\_\-GATHER}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-GATHER~((uint64\_\-t)1 $<$$<$ 14)}\label{custom__debug_8h_bd84c0d57a64beb87798abc9e8fcfae3}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_IO@{MASTER\_\-IO}}
+\index{MASTER_IO@{MASTER\_\-IO}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-IO~((uint64\_\-t)1 $<$$<$ 8)}\label{custom__debug_8h_41681466b801e496fa56a4aa41ca261f}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_IRECV@{MASTER\_\-IRECV}}
+\index{MASTER_IRECV@{MASTER\_\-IRECV}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-IRECV~((uint64\_\-t)1 $<$$<$ 12)}\label{custom__debug_8h_79a2561d2c48b718e8b4193e130e9f9b}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_ISEND@{MASTER\_\-ISEND}}
+\index{MASTER_ISEND@{MASTER\_\-ISEND}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-ISEND~((uint64\_\-t)1 $<$$<$ 10)}\label{custom__debug_8h_963542610bc6e56e990b60145ca668d4}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_MSG@{MASTER\_\-MSG}}
+\index{MASTER_MSG@{MASTER\_\-MSG}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-MSG~((uint64\_\-t)1 $<$$<$ 2)}\label{custom__debug_8h_25aa89a9ed318d8b1d2bda175aa1d7d6}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MASTER_RAND@{MASTER\_\-RAND}}
+\index{MASTER_RAND@{MASTER\_\-RAND}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MASTER\_\-RAND~((uint64\_\-t)1 $<$$<$ 16)}\label{custom__debug_8h_02289d0fb199ce05e2d371b6bc7b6507}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!MSG_ALL@{MSG\_\-ALL}}
+\index{MSG_ALL@{MSG\_\-ALL}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MSG\_\-ALL~(uint64\_\-t) (MASTER\_\-MSG + WORKER\_\-MSG)}\label{custom__debug_8h_048a39b683e96a91112521ad13f8d0f2}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!NO_DEBUG@{NO\_\-DEBUG}}
+\index{NO_DEBUG@{NO\_\-DEBUG}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-DEBUG~(uint64\_\-t)0}\label{custom__debug_8h_424f1b989129c5519f4df8f61ad6dcaf}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER@{WORKER}}
+\index{WORKER@{WORKER}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER~((uint64\_\-t)1 $<$$<$ 1)}\label{custom__debug_8h_61fc173cd03db618eb2f64b60f42b55b}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_ALL@{WORKER\_\-ALL}}
+\index{WORKER_ALL@{WORKER\_\-ALL}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-ALL}\label{custom__debug_8h_6f293a31f8a3931106dfbe2daf8535be}
+
+
+\textbf{Value:}
+
+\begin{Code}\begin{verbatim}(uint64_t) (WORKER + WORKER_MSG + WORKER_ERR \
+                                            + WORKER_COMPUTE + WORKER_IO \
+                                            + WORKER_ISEND + WORKER_IRECV \
+                                            + WORKER_GATHER + WORKER_RAND)
+\end{verbatim}\end{Code}
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_COMPUTE@{WORKER\_\-COMPUTE}}
+\index{WORKER_COMPUTE@{WORKER\_\-COMPUTE}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-COMPUTE~((uint64\_\-t)1 $<$$<$ 7)}\label{custom__debug_8h_82ab99eb3b49772030a6b55907fafac0}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_ERR@{WORKER\_\-ERR}}
+\index{WORKER_ERR@{WORKER\_\-ERR}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-ERR~((uint64\_\-t)1 $<$$<$ 5)}\label{custom__debug_8h_fce3aa1038bee257ad7c30cd8ac48196}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_GATHER@{WORKER\_\-GATHER}}
+\index{WORKER_GATHER@{WORKER\_\-GATHER}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-GATHER~((uint64\_\-t)1 $<$$<$ 15)}\label{custom__debug_8h_e7cef74d207a12f1e13ee4f555345126}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_IO@{WORKER\_\-IO}}
+\index{WORKER_IO@{WORKER\_\-IO}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-IO~((uint64\_\-t)1 $<$$<$ 9)}\label{custom__debug_8h_72e7d073c08be27427415f4eb8e6eb60}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_IRECV@{WORKER\_\-IRECV}}
+\index{WORKER_IRECV@{WORKER\_\-IRECV}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-IRECV~((uint64\_\-t)1 $<$$<$ 13)}\label{custom__debug_8h_4ee5343271419a29df7550a45dda0744}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_ISEND@{WORKER\_\-ISEND}}
+\index{WORKER_ISEND@{WORKER\_\-ISEND}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-ISEND~((uint64\_\-t)1 $<$$<$ 11)}\label{custom__debug_8h_593491717baebee44595f677e2a87194}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_MSG@{WORKER\_\-MSG}}
+\index{WORKER_MSG@{WORKER\_\-MSG}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-MSG~((uint64\_\-t)1 $<$$<$ 3)}\label{custom__debug_8h_279ac09686ed21ce5885a70f47328d9a}
+
+
+\index{custom_debug.h@{custom\_\-debug.h}!WORKER_RAND@{WORKER\_\-RAND}}
+\index{WORKER_RAND@{WORKER\_\-RAND}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORKER\_\-RAND~((uint64\_\-t)1 $<$$<$ 17)}\label{custom__debug_8h_157dfe2b51f9c2e7f6ff13bd04749f92}
+
+
+
+
+\subsection{Function Documentation}
+\index{custom_debug.h@{custom\_\-debug.h}!custom_debug@{custom\_\-debug}}
+\index{custom_debug@{custom\_\-debug}!custom_debug.h@{custom\_\-debug.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int custom\_\-debug (uint64\_\-t {\em mask}, const char $\ast$ {\em format},  {\em ...})}\label{custom__debug_8h_a4090d810165be7e73bbed83b6ddde2e}
+
+
+A custom function for debugging based on a debug mask compared against a global debug mask.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mask}]A mask to compare against the global\_\-debug\_\-mask. \item[{\em format}]Format string for output. \item[{\em ...}]Additional arguments for variables to be displayed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}

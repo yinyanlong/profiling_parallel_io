@@ -1,0 +1,61 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/misc.h File Reference}
+\label{misc_8h}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/misc.h@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/misc.h}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdarg.h$>$}\par
+{\tt \#include $<$stdint.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+double \bf{generate\_\-rand\_\-zero\_\-one} (unsigned int $\ast$seed)
+\item 
+int \bf{generate\_\-int\_\-range} (unsigned int $\ast$seed, int min, int max)
+\item 
+int \bf{find\_\-frag} (unsigned int $\ast$seed, int total\_\-frags)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{misc.h@{misc.h}!find_frag@{find\_\-frag}}
+\index{find_frag@{find\_\-frag}!misc.h@{misc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int find\_\-frag (unsigned int $\ast$ {\em seed\_\-p}, int {\em total\_\-frags})}\label{misc_8h_7a1f944a01e9d2649fde7024bd282bf0}
+
+
+The function is called for each result to determine which fragment will have the result.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em seed\_\-p}]Pointer to the seed to generate pseudo-random output. \item[{\em total\_\-frags}]Fragment count. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The index of the fragment which has this result. \end{Desc}
+\index{misc.h@{misc.h}!generate_int_range@{generate\_\-int\_\-range}}
+\index{generate_int_range@{generate\_\-int\_\-range}!misc.h@{misc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int generate\_\-int\_\-range (unsigned int $\ast$ {\em seed\_\-p}, int {\em min}, int {\em max})}\label{misc_8h_adb19b68c0714b2ce3c5e2a103152acb}
+
+
+Generate a pseudo-random integer between min and max.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em seed\_\-p}]Pointer to the seed to generate pseudo-random output. \item[{\em min}]Minimum integer value \item[{\em max}]Maximum integer value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The pseudo-random integer in betwen min to max. \end{Desc}
+\index{misc.h@{misc.h}!generate_rand_zero_one@{generate\_\-rand\_\-zero\_\-one}}
+\index{generate_rand_zero_one@{generate\_\-rand\_\-zero\_\-one}!misc.h@{misc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double generate\_\-rand\_\-zero\_\-one (unsigned int $\ast$ {\em seed\_\-p})}\label{misc_8h_ddd7f41419e9150ac21b2d8ba544fa50}
+
+
+Generate a pseudo-random double between 0 and 1.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em seed\_\-p}]Pointer to the seed to generate pseudo-random output. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The pseudo-random double in between 0 to 1. \end{Desc}

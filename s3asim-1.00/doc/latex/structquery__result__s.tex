@@ -1,0 +1,71 @@
+\section{query\_\-result\_\-s Struct Reference}
+\label{structquery__result__s}\index{query_result_s@{query\_\-result\_\-s}}
+{\tt \#include $<$worker\_\-help.h$>$}
+
+\subsection*{Data Fields}
+\begin{CompactItemize}
+\item 
+int64\_\-t \bf{lresult\_\-total\_\-size}
+\item 
+\bf{lresult\_\-s} $\ast$ \bf{lresult\_\-head}
+\item 
+int \bf{lresult\_\-count}
+\item 
+int \bf{state}
+\item 
+int64\_\-t \bf{offset\_\-list\_\-count}
+\item 
+int64\_\-t $\ast$ \bf{offset\_\-list}
+\item 
+MPI\_\-Request \bf{offset\_\-list\_\-count\_\-req}
+\item 
+MPI\_\-Request \bf{offset\_\-list\_\-req}
+\end{CompactItemize}
+
+
+\subsection{Field Documentation}
+\index{query_result_s@{query\_\-result\_\-s}!lresult_count@{lresult\_\-count}}
+\index{lresult_count@{lresult\_\-count}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int \bf{query\_\-result\_\-s::lresult\_\-count}}\label{structquery__result__s_2b98cc2f4eed5d5f6c2b76cf09923f2d}
+
+
+\index{query_result_s@{query\_\-result\_\-s}!lresult_head@{lresult\_\-head}}
+\index{lresult_head@{lresult\_\-head}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \bf{lresult\_\-s}$\ast$ \bf{query\_\-result\_\-s::lresult\_\-head}}\label{structquery__result__s_3889f6d09d87018ea2041972c01bfe90}
+
+
+Merged linked list of all results \index{query_result_s@{query\_\-result\_\-s}!lresult_total_size@{lresult\_\-total\_\-size}}
+\index{lresult_total_size@{lresult\_\-total\_\-size}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int64\_\-t \bf{query\_\-result\_\-s::lresult\_\-total\_\-size}}\label{structquery__result__s_e129921ec310bd789e9a7d7ed71bd075}
+
+
+\index{query_result_s@{query\_\-result\_\-s}!offset_list@{offset\_\-list}}
+\index{offset_list@{offset\_\-list}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int64\_\-t$\ast$ \bf{query\_\-result\_\-s::offset\_\-list}}\label{structquery__result__s_8ce88c74af6e2facc05271f58b3de994}
+
+
+List of offsets for writing a query to file. The count should be the same as lresult\_\-count. \index{query_result_s@{query\_\-result\_\-s}!offset_list_count@{offset\_\-list\_\-count}}
+\index{offset_list_count@{offset\_\-list\_\-count}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int64\_\-t \bf{query\_\-result\_\-s::offset\_\-list\_\-count}}\label{structquery__result__s_9f3369414de29ada4790b2ccb4ac52dc}
+
+
+Count of offsets to be used \index{query_result_s@{query\_\-result\_\-s}!offset_list_count_req@{offset\_\-list\_\-count\_\-req}}
+\index{offset_list_count_req@{offset\_\-list\_\-count\_\-req}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}MPI\_\-Request \bf{query\_\-result\_\-s::offset\_\-list\_\-count\_\-req}}\label{structquery__result__s_7439b10e836e3b30ab166665f95c081c}
+
+
+\index{query_result_s@{query\_\-result\_\-s}!offset_list_req@{offset\_\-list\_\-req}}
+\index{offset_list_req@{offset\_\-list\_\-req}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}MPI\_\-Request \bf{query\_\-result\_\-s::offset\_\-list\_\-req}}\label{structquery__result__s_0e4c4de6a6cbffb637f3da8951e44a92}
+
+
+\index{query_result_s@{query\_\-result\_\-s}!state@{state}}
+\index{state@{state}!query_result_s@{query\_\-result\_\-s}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int \bf{query\_\-result\_\-s::state}}\label{structquery__result__s_1ccdb1e90f2c8adaf7ed3dd3613ad2ab}
+
+
+
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/\bf{worker\_\-help.h}\end{CompactItemize}

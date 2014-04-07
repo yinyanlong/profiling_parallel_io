@@ -1,0 +1,161 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/s3asim.c File Reference}
+\label{s3asim_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/s3asim.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/s3asim.c}}
+{\tt \#include $<$getopt.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$sys/types.h$>$}\par
+{\tt \#include $<$sys/stat.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+{\tt \#include $<$malloc.h$>$}\par
+{\tt \#include $<$assert.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include \char`\"{}mpi.h\char`\"{}}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+{\tt \#include $<$limits.h$>$}\par
+{\tt \#include \char`\"{}custom\_\-debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}test.h\char`\"{}}\par
+{\tt \#include \char`\"{}master.h\char`\"{}}\par
+{\tt \#include \char`\"{}worker.h\char`\"{}}\par
+{\tt \#include \char`\"{}hist\_\-params.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{\_\-GNU\_\-SOURCE}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static void \bf{print\_\-usage} (char $\ast$exefile)
+\item 
+static int \bf{parse\_\-args} (int argc, char $\ast$argv[$\,$], struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static void \bf{print\_\-settings} (struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p, int numprocs)
+\item 
+static int \bf{precalculate\_\-results} (struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p, struct \bf{frag\_\-preresult\_\-s} $\ast$$\ast$query\_\-frag\_\-preresult\_\-matrix)
+\item 
+int \bf{main} (int argc, char $\ast$$\ast$argv)
+\item 
+static int \bf{print\_\-hints} (struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int64\_\-t \bf{global\_\-debug\_\-mask} = MASTER\_\-IO $|$ WORKER\_\-IO $|$ MASTER\_\-ERR $|$ WORKER\_\-ERR
+\item 
+static const char $\ast$ \bf{io\_\-method\_\-name} [MAX\_\-IO]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{s3asim.c@{s3asim.c}!_GNU_SOURCE@{\_\-GNU\_\-SOURCE}}
+\index{_GNU_SOURCE@{\_\-GNU\_\-SOURCE}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-GNU\_\-SOURCE}\label{s3asim_8c_369266c24eacffb87046522897a570d5}
+
+
+
+
+\subsection{Function Documentation}
+\index{s3asim.c@{s3asim.c}!main@{main}}
+\index{main@{main}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{s3asim_8c_3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Main function which selects the process to be a master or a worker based on MPI myid.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em argc}]Number of arguments. \item[{\em argv}]Pointer to the argument pointers. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{s3asim.c@{s3asim.c}!parse_args@{parse\_\-args}}
+\index{parse_args@{parse\_\-args}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int parse\_\-args (int {\em argc}, char $\ast$ {\em argv}[$\,$], struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_c433ff9248d958d9523e0cd08226efec}
+
+
+Parse the command line arguments and set the test\_\-params structure
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em argc}]Number of arguments. \item[{\em argv}]Pointer to the argument pointers. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{s3asim.c@{s3asim.c}!precalculate_results@{precalculate\_\-results}}
+\index{precalculate_results@{precalculate\_\-results}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int precalculate\_\-results (struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p}, struct \bf{frag\_\-preresult\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-preresult\_\-matrix})\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_c8907070a409c8c1569af91abd3e13c7}
+
+
+In order to help generate repeatable pseudo-random results for a given set of input parameters, the master precalculates how many results will be generated for each query.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \item[{\em query\_\-frag\_\-preresult\_\-matrix}]Pointer to the matrix of (query,frag) results. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{s3asim.c@{s3asim.c}!print_hints@{print\_\-hints}}
+\index{print_hints@{print\_\-hints}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int print\_\-hints (struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_9be48a3efd8ac563f1b113126c03a388}
+
+
+Get the hint information from the MPI\_\-Info variable stored in the test\_\-params and print it out.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{s3asim.c@{s3asim.c}!print_settings@{print\_\-settings}}
+\index{print_settings@{print\_\-settings}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void print\_\-settings (struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p}, int {\em numprocs})\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_48170032dcec467ca7eff1ce72632181}
+
+
+Print out the setting information for the application run.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \item[{\em numprocs}]Number of processes used. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{s3asim.c@{s3asim.c}!print_usage@{print\_\-usage}}
+\index{print_usage@{print\_\-usage}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static void print\_\-usage (char $\ast$ {\em exefile})\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_f708640d8a6325e5147c42c631c7552a}
+
+
+Prints out the usage of the executable
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em exefile}]Pointer to the name of the executable. \end{description}
+\end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{s3asim.c@{s3asim.c}!global_debug_mask@{global\_\-debug\_\-mask}}
+\index{global_debug_mask@{global\_\-debug\_\-mask}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int64\_\-t \bf{global\_\-debug\_\-mask} = MASTER\_\-IO $|$ WORKER\_\-IO $|$ MASTER\_\-ERR $|$ WORKER\_\-ERR}\label{s3asim_8c_1931c00ae0b7104d5c1c7473116ae1e4}
+
+
+\index{s3asim.c@{s3asim.c}!io_method_name@{io\_\-method\_\-name}}
+\index{io_method_name@{io\_\-method\_\-name}!s3asim.c@{s3asim.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ \bf{io\_\-method\_\-name}[MAX\_\-IO]\hspace{0.3cm}{\tt  [static]}}\label{s3asim_8c_578ea5b4a01e6c2b7056e3fef8e8fc01}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim} 
+    {
+        "individual",
+        "collective"
+    }
+\end{verbatim}\end{Code}

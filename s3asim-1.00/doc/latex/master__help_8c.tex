@@ -1,0 +1,228 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master\_\-help.c File Reference}
+\label{master__help_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master_help.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/master\_\-help.c}}
+{\tt \#include \char`\"{}master\_\-help.h\char`\"{}}\par
+{\tt \#include \char`\"{}icomm.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static int \bf{check\_\-query\_\-status} (struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, int $\ast$cur\_\-query\_\-p, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{send\_\-work} (int worker, int $\ast$cur\_\-query\_\-p, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{post\_\-irecv} (int worker, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-irecv\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{master\_\-check\_\-irecv\_\-results} (int cur\_\-query, int $\ast$last\_\-irecv\_\-result\_\-done\_\-p, int wait\_\-status, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-irecv\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{process\_\-results} (int cur\_\-query, int cur\_\-frag, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-irecv\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{generate\_\-io\_\-offset\_\-pairs} (int worker, int $\ast$cur\_\-io\_\-query\_\-p, int64\_\-t cur\_\-file\_\-offset, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-proc\_\-isend\_\-matrix, struct \bf{lresult\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{isend\_\-offsets} (int numprocs, int cur\_\-file\_\-offset, int cur\_\-query, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-proc\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int64\_\-t \bf{calculate\_\-start\_\-file\_\-offset} (struct \bf{lresult\_\-s} $\ast$query\_\-result\_\-list)
+\item 
+int \bf{do\_\-all\_\-io} (int $\ast$cur\_\-io\_\-query\_\-p, int64\_\-t $\ast$cur\_\-file\_\-offset\_\-p, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{do\_\-dummy\_\-io} (struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{master\_\-check\_\-isend\_\-offsets} (int wait\_\-status, int numprocs, int last\_\-query\_\-offset\_\-sent, int $\ast$last\_\-query\_\-offset\_\-comp\_\-p, struct \bf{query\_\-info\_\-s} $\ast$query\_\-info\_\-list, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-proc\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+void \bf{print\_\-offset\_\-list} (int64\_\-t $\ast$offset\_\-list, int offset\_\-list\_\-count)
+\item 
+void \bf{master\_\-check\_\-all\_\-irecv} (int numprocs, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-irecv\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+void \bf{master\_\-check\_\-all\_\-isend} (int numprocs, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-proc\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{master_help.c@{master\_\-help.c}!calculate_start_file_offset@{calculate\_\-start\_\-file\_\-offset}}
+\index{calculate_start_file_offset@{calculate\_\-start\_\-file\_\-offset}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int64\_\-t calculate\_\-start\_\-file\_\-offset (struct \bf{lresult\_\-s} $\ast$ {\em query\_\-result\_\-list})}\label{master__help_8c_cd2ffec0ba4d23b5d523d264c2b3dd4f}
+
+
+Find the next start\_\-file\_\-offset by going through the result list and adding up the sizes of the results.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em query\_\-result\_\-list}]The head of the result list for a query. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The start\_\-file\_\-offset. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!check_query_status@{check\_\-query\_\-status}}
+\index{check_query_status@{check\_\-query\_\-status}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int check\_\-query\_\-status (struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, int $\ast$ {\em cur\_\-query\_\-p}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{master__help_8c_6bef6ce044339a1ac0e10d17c991eb5a}
+
+
+Determines what to send to workers who are requesting work. If there is work remaining, send out a (query,frag) pair. Otherwise, there may be a global query sync or the queries could already be fully scheduled.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em cur\_\-query\_\-p}]Index of current query in the query list. \item[{\em work\_\-info\_\-p}]Pointer to work\_\-info structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Status of progress for queries and fragments. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!do_all_io@{do\_\-all\_\-io}}
+\index{do_all_io@{do\_\-all\_\-io}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int do\_\-all\_\-io (int $\ast$ {\em cur\_\-io\_\-query\_\-p}, int64\_\-t $\ast$ {\em cur\_\-file\_\-offset\_\-p}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_6153ffcafb3a84ad93ec8646bdecb7f3}
+
+
+If the master-writing mode is chosen, this function is called to write the results to file in order. The result data is copied into a temporary buffer and then written contiguously to file.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em cur\_\-query\_\-p}]The query which has been globally sorted and is ready for I/O. \item[{\em cur\_\-file\_\-offset\_\-p}]A pointer to where we are in the output file. \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!do_dummy_io@{do\_\-dummy\_\-io}}
+\index{do_dummy_io@{do\_\-dummy\_\-io}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int do\_\-dummy\_\-io (struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_e231da1fc42ba547786bccfd1dae9c4e}
+
+
+If the worker-writing mode is chosen with collective I/O, the master must also participate since it is in the same communication group. While it does not actually write any data, the master will also call MPI\_\-File\_\-write\_\-all().
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!generate_io_offset_pairs@{generate\_\-io\_\-offset\_\-pairs}}
+\index{generate_io_offset_pairs@{generate\_\-io\_\-offset\_\-pairs}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int generate\_\-io\_\-offset\_\-pairs (int {\em worker}, int $\ast$ {\em cur\_\-io\_\-query\_\-p}, int64\_\-t {\em cur\_\-file\_\-offset}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-proc\_\-isend\_\-matrix}, struct \bf{lresult\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{master__help_8c_c98cb63fa4e9f236a7ba8ca49d1d8eef}
+
+
+For a specific worker, generate the I/O offset array for where its result data should be written in the shared output result file. A first pass over the results finds the size of the offset array to be allocated. The second pass figures out what they should be.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em worker}]MPI id of worker process. \item[{\em cur\_\-io\_\-query\_\-p}]Pointer to the index of current I/O query in the query\_\-proc\_\-isend\_\-matrix. \item[{\em cur\_\-file\_\-offset}]Where we are in the output file. \item[{\em query\_\-proc\_\-isend\_\-matrix}]Pointer to an element within the matrix which has the isend information. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!isend_offsets@{isend\_\-offsets}}
+\index{isend_offsets@{isend\_\-offsets}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int isend\_\-offsets (int {\em numprocs}, int {\em cur\_\-file\_\-offset}, int {\em cur\_\-query}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-proc\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_8efbf4c27dad84d18e04ed04381b8b86}
+
+
+When using parallel I/O, the workers will write their own results to file. Since the file is shared, the workers need to know the offsets of where their results belong in the file (since it is globally ordered). This function sends out 2 messages to each worker for a given query. First, it sends out the number of offsets and then it sends the actual offset array.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em numprocs}]Number of processes used. \item[{\em cur\_\-file\_\-offset}]Where we are in the output file. \item[{\em cur\_\-query}]The query which has been globally sorted and is ready for I/O. \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em query\_\-proc\_\-isend\_\-matrix}]Pointer to an element within the matrix which has the isend information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!master_check_all_irecv@{master\_\-check\_\-all\_\-irecv}}
+\index{master_check_all_irecv@{master\_\-check\_\-all\_\-irecv}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void master\_\-check\_\-all\_\-irecv (int {\em numprocs}, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-irecv\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_5135b98552710545bb3cb56c1c460a42}
+
+
+Do a final check on the query\_\-frag\_\-irecv\_\-matrix for any uncompleted irecvs. None should exist.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em numprocs}]Number of processes used. \item[{\em query\_\-frag\_\-irecv\_\-matrix}]Pointer to matrix of irecv request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{master_help.c@{master\_\-help.c}!master_check_all_isend@{master\_\-check\_\-all\_\-isend}}
+\index{master_check_all_isend@{master\_\-check\_\-all\_\-isend}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void master\_\-check\_\-all\_\-isend (int {\em numprocs}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-proc\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_e9e4357779e91a90668aa50975e3effe}
+
+
+Do a final check on the query\_\-frag\_\-isend\_\-matrix for any uncompleted isends. None should exist.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em numprocs}]Number of processes used. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{master_help.c@{master\_\-help.c}!master_check_irecv_results@{master\_\-check\_\-irecv\_\-results}}
+\index{master_check_irecv_results@{master\_\-check\_\-irecv\_\-results}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int master\_\-check\_\-irecv\_\-results (int {\em cur\_\-query}, int $\ast$ {\em last\_\-irecv\_\-result\_\-done\_\-p}, int {\em wait\_\-status}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-irecv\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_ea8d2bd2e0ac0e51fe229c9f49d96cf2}
+
+
+Check the query\_\-frag\_\-irecv\_\-matrix to see how the irecvs are progressing. If a size has been received, set up a irecv for the actual result. If the master-writing method is used, the worker will additionally send the result data, which is included in the size.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em cur\_\-query}]Index of current query in the query list. \item[{\em last\_\-irecv\_\-result\_\-done\_\-p}]Pointer to the index of the last query completed. \item[{\em wait\_\-status}]Status of master process (wait or no wait). \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em query\_\-frag\_\-irecv\_\-matrix}]Pointer to matrix of irecv request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!master_check_isend_offsets@{master\_\-check\_\-isend\_\-offsets}}
+\index{master_check_isend_offsets@{master\_\-check\_\-isend\_\-offsets}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int master\_\-check\_\-isend\_\-offsets (int {\em wait\_\-status}, int {\em numprocs}, int {\em last\_\-query\_\-offset\_\-sent}, int $\ast$ {\em last\_\-query\_\-offset\_\-comp\_\-p}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-proc\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_26e7ba48ee59e0d69e0b73a81e65e161}
+
+
+Check the query\_\-proc\_\-isend\_\-matrix to see how the isends are progressing. Mark the state of each process separately.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em wait\_\-status}]Status of master process (wait or no wait). \item[{\em numprocs}]Number of processes used. \item[{\em last\_\-query\_\-offset\_\-sent}]The last query where all the offsets were sent. \item[{\em last\_\-query\_\-offset\_\-comp\_\-p}]Pointer to the index of the last query which completed all isends. \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em query\_\-proc\_\-isend\_\-matrix}]Pointer to an element within the matrix which has the isend information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!post_irecv@{post\_\-irecv}}
+\index{post_irecv@{post\_\-irecv}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int post\_\-irecv (int {\em worker}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-irecv\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_3907598dcc26cd2eac68061480abb332}
+
+
+After a worker has been assigned a (query,frag), then setup an irecv request to check for the size of the result.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em worker}]MPI id of worker process who requested work. \item[{\em work\_\-info\_\-p}]Pointer to work\_\-info structure. \item[{\em query\_\-frag\_\-irecv\_\-matrix}]Pointer to matrix of irecv request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!print_offset_list@{print\_\-offset\_\-list}}
+\index{print_offset_list@{print\_\-offset\_\-list}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-offset\_\-list (int64\_\-t $\ast$ {\em offset\_\-list}, int {\em offset\_\-list\_\-count})}\label{master__help_8c_37807c4b5a6db9d3a82df0915b9500d5}
+
+
+Debugging function to check the generated offset array.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offset\_\-list}]The array of offsets. \item[{\em offset\_\-list\_\-count}]The number of offsets lin the list. \end{description}
+\end{Desc}
+\index{master_help.c@{master\_\-help.c}!process_results@{process\_\-results}}
+\index{process_results@{process\_\-results}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int process\_\-results (int {\em cur\_\-query}, int {\em cur\_\-frag}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{irecv\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-irecv\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_fb19fb09cef43dcdcb08fc990076133b}
+
+
+After result data has been received for a (query,frag), reformat the data stored in the irecv data into a new result list. The new result list which will be the final result list if it is the first result data added for this query. Otherwise, the new result list is merged with the current result list.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em cur\_\-query}]Index of current query in the query list. \item[{\em cur\_\-frag}]Index of current frag for cur\_\-query. \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em query\_\-frag\_\-irecv\_\-matrix}]Pointer to matrix of irecv request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{master_help.c@{master\_\-help.c}!send_work@{send\_\-work}}
+\index{send_work@{send\_\-work}!master_help.c@{master\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int send\_\-work (int {\em worker}, int $\ast$ {\em cur\_\-query\_\-p}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{query\_\-info\_\-s} $\ast$ {\em query\_\-info\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{master__help_8c_deb96e13f94645e4c7975cc6afbd2576}
+
+
+Send a response to the worker who requested some work. A work\_\-info structure is passed in the message with a control tag in the frag information on what to do next.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em worker}]MPI id of worker process who requested work. \item[{\em cur\_\-query\_\-p}]Pointer to the index of current query in the query list. \item[{\em work\_\-info\_\-p}]Pointer to work\_\-info structure. \item[{\em query\_\-info\_\-list}]Pointer to array of progress for each query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Status of progress for queries and fragments. \end{Desc}

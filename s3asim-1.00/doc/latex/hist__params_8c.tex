@@ -1,0 +1,89 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/hist\_\-params.c File Reference}
+\label{hist__params_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/hist_params.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/hist\_\-params.c}}
+{\tt \#include \char`\"{}hist\_\-params.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{STR\_\-BUF\_\-SIZE}~1024
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{read\_\-hist\_\-params} (struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p, int sequence\_\-type)
+\item 
+void \bf{print\_\-hist\_\-params} (struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p, int sequence\_\-type)
+\item 
+int \bf{generate\_\-rand\_\-hist} (int myid, unsigned int $\ast$seed\_\-p, int sequence\_\-type, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static const char $\ast$ \bf{decode\_\-sequence} [MAX\_\-SEQUENCE]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{hist_params.c@{hist\_\-params.c}!STR_BUF_SIZE@{STR\_\-BUF\_\-SIZE}}
+\index{STR_BUF_SIZE@{STR\_\-BUF\_\-SIZE}!hist_params.c@{hist\_\-params.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define STR\_\-BUF\_\-SIZE~1024}\label{hist__params_8c_d6e15065c0a342050a71942658732756}
+
+
+
+
+\subsection{Function Documentation}
+\index{hist_params.c@{hist\_\-params.c}!generate_rand_hist@{generate\_\-rand\_\-hist}}
+\index{generate_rand_hist@{generate\_\-rand\_\-hist}!hist_params.c@{hist\_\-params.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int generate\_\-rand\_\-hist (int {\em myid}, unsigned int $\ast$ {\em seed\_\-p}, int {\em sequence\_\-type}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{hist__params_8c_c635ab29585dee9b74c4b7b21055d05b}
+
+
+Based on the histogram information provided by either the query or database distributions, generate a sequence size.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em seed\_\-p}]Seed to generate pseudo-random output. \item[{\em sequence\_\-type}]Either a QUERY or DATABASE type. \item[{\em work\_\-info\_\-p}]Pointer to work information structure. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The sequence size, or negative values on error. \end{Desc}
+\index{hist_params.c@{hist\_\-params.c}!print_hist_params@{print\_\-hist\_\-params}}
+\index{print_hist_params@{print\_\-hist\_\-params}!hist_params.c@{hist\_\-params.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-hist\_\-params (struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p}, int {\em sequence\_\-type})}\label{hist__params_8c_13fbbe5d74468cabdd99bf1a14929f8a}
+
+
+Prints out the histogram information from the test\_\-params structure that has already been parsed from a file for either query or database distributions.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \item[{\em sequence\_\-type}]Either a QUERY or DATABASE type. \end{description}
+\end{Desc}
+\index{hist_params.c@{hist\_\-params.c}!read_hist_params@{read\_\-hist\_\-params}}
+\index{read_hist_params@{read\_\-hist\_\-params}!hist_params.c@{hist\_\-params.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int read\_\-hist\_\-params (struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p}, int {\em sequence\_\-type})}\label{hist__params_8c_eda2c8a6530c1e87795e1a645c88cd38}
+
+
+Reads in histogram information from a file for either query or database distributions.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \item[{\em sequence\_\-type}]Either a QUERY or DATABASE type. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{hist_params.c@{hist\_\-params.c}!decode_sequence@{decode\_\-sequence}}
+\index{decode_sequence@{decode\_\-sequence}!hist_params.c@{hist\_\-params.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ \bf{decode\_\-sequence}[MAX\_\-SEQUENCE]\hspace{0.3cm}{\tt  [static]}}\label{hist__params_8c_9291df9cc8e8a43995640243fc3e2807}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}
+    {
+        "QUERY",
+        "DATABASE"
+    }
+\end{verbatim}\end{Code}

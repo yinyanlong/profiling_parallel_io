@@ -1,0 +1,329 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker\_\-help.c File Reference}
+\label{worker__help_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker_help.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker\_\-help.c}}
+{\tt \#include $<$unistd.h$>$}\par
+{\tt \#include $<$limits.h$>$}\par
+{\tt \#include \char`\"{}worker\_\-help.h\char`\"{}}\par
+{\tt \#include \char`\"{}icomm.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{\_\-XOPEN\_\-SOURCE}~500
+\item 
+\#define \bf{MAX\_\-RESULT\_\-COUNT}~1000000
+\item 
+\#define \bf{STARTUP\_\-COST}~50000
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{get\_\-test\_\-params} (int myid, int numprocs, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{send\_\-recv\_\-work\_\-req} (int myid, int $\ast$wait\_\-status\_\-p, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{compare\_\-results} (const void $\ast$ptr\_\-1, const void $\ast$ptr\_\-2)
+\item 
+void \bf{print\_\-result} (struct \bf{result\_\-s} $\ast$cur\_\-result\_\-p)
+\item 
+int \bf{do\_\-work} (int myid, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{merge\_\-results} (int myid, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{worker\_\-isend\_\-results} (int myid, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, int $\ast$last\_\-query\_\-offset\_\-recv\_\-p, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{increment\_\-work} (int myid, struct \bf{work\_\-info\_\-s} $\ast$last\_\-query\_\-result\_\-sent\_\-p, struct \bf{work\_\-info\_\-s} $\ast$last\_\-query\_\-result\_\-comp\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{decrement\_\-work} (int myid, struct \bf{work\_\-info\_\-s} $\ast$last\_\-query\_\-result\_\-comp\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{worker\_\-check\_\-isend\_\-results} (int myid, int wait\_\-status, struct \bf{work\_\-info\_\-s} $\ast$last\_\-query\_\-result\_\-sent\_\-p, struct \bf{work\_\-info\_\-s} $\ast$last\_\-query\_\-result\_\-comp\_\-p, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{worker\_\-post\_\-irecv} (int myid, struct \bf{work\_\-info\_\-s} $\ast$work\_\-info\_\-p, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{worker\_\-check\_\-irecv\_\-offsets} (int myid, int wait\_\-status, int last\_\-query\_\-offset\_\-recv, int $\ast$last\_\-query\_\-offset\_\-comp\_\-p, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{worker\_\-do\_\-dummy\_\-io} (int myid, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+static int \bf{worker\_\-do\_\-io} (int myid, int cur\_\-io\_\-query, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{do\_\-all\_\-worker\_\-io} (int myid, int wait\_\-status, int last\_\-io\_\-ready, int $\ast$last\_\-io\_\-comp\_\-p, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+void \bf{worker\_\-check\_\-all\_\-irecv} (int myid, int numprocs, struct \bf{query\_\-result\_\-s} $\ast$query\_\-result\_\-list, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+void \bf{worker\_\-check\_\-all\_\-isend} (int myid, int numprocs, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$query\_\-frag\_\-isend\_\-matrix, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char $\ast$ \bf{decode\_\-worker\_\-state} [MAX\_\-WORKER\_\-STATE]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{worker_help.c@{worker\_\-help.c}!_XOPEN_SOURCE@{\_\-XOPEN\_\-SOURCE}}
+\index{_XOPEN_SOURCE@{\_\-XOPEN\_\-SOURCE}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-XOPEN\_\-SOURCE~500}\label{worker__help_8c_78c99ffd76a7bb3c8c74db76207e9ab4}
+
+
+\index{worker_help.c@{worker\_\-help.c}!MAX_RESULT_COUNT@{MAX\_\-RESULT\_\-COUNT}}
+\index{MAX_RESULT_COUNT@{MAX\_\-RESULT\_\-COUNT}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-RESULT\_\-COUNT~1000000}\label{worker__help_8c_08ed223d984ca8d7a4c4ff7816b2a860}
+
+
+\index{worker_help.c@{worker\_\-help.c}!STARTUP_COST@{STARTUP\_\-COST}}
+\index{STARTUP_COST@{STARTUP\_\-COST}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define STARTUP\_\-COST~50000}\label{worker__help_8c_e2e6087a7b34e4d9a569e479ee04e60f}
+
+
+
+
+\subsection{Function Documentation}
+\index{worker_help.c@{worker\_\-help.c}!compare_results@{compare\_\-results}}
+\index{compare_results@{compare\_\-results}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int compare\_\-results (const void $\ast$ {\em ptr\_\-1}, const void $\ast$ {\em ptr\_\-2})\hspace{0.3cm}{\tt  [static]}}\label{worker__help_8c_91f9252d6a3c51a0a7f1c2b4862c08be}
+
+
+Results are compared so that they can be placed in a sorted linked list. This is the comparator function which is used by qsort.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ptr\_\-1}]Void pointer 1 to result structure. \item[{\em ptr\_\-2}]Void pointer 2 to result structure. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Less than 0 if ptr\_\-1 $<$ ptr\_\-2, equal to 0 if ptr\_\-1 == ptr\_\-2, and greater than 0 if ptr\_\-1 $>$ ptr2. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!decrement_work@{decrement\_\-work}}
+\index{decrement_work@{decrement\_\-work}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int decrement\_\-work (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em last\_\-query\_\-result\_\-comp\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{worker__help_8c_ed7389736e7c21d05fa56c0a084f4cb7}
+
+
+Used by \doxyref{worker\_\-check\_\-isend\_\-results()}{p.}{worker__help_8c_96a210dab5fe40a84b24cada6de7462e} to back off to the previous (query,frag) since it was not complete.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em last\_\-query\_\-result\_\-comp\_\-p}]Pointer to the work\_\-info structure of the next (query,frag) to be checked (changed in this function). \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!do_all_worker_io@{do\_\-all\_\-worker\_\-io}}
+\index{do_all_worker_io@{do\_\-all\_\-worker\_\-io}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int do\_\-all\_\-worker\_\-io (int {\em myid}, int {\em wait\_\-status}, int {\em last\_\-io\_\-ready}, int $\ast$ {\em last\_\-io\_\-comp\_\-p}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_ca670aa4ccec1df3b834ec98395719b5}
+
+
+This function will only be called if the worker-writing method is used. When the master notifies the worker of getting ready to write, the worker will try to do I/O to the queries which it has received offset arrays for. If collective I/O is used, the worker will be careful about when to call this function to ensure that all processes write together.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status\_\-p}]Pointer to the wait status of the worker. \item[{\em last\_\-io\_\-ready}]Last I/O operation possible \item[{\em last\_\-io\_\-comp\_\-p}]Pointer to the I/O query operation to try next (modified in this function). \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!do_work@{do\_\-work}}
+\index{do_work@{do\_\-work}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int do\_\-work (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_e2fcc507d8e2594dc36e1ab4691682c8}
+
+
+The work is calculated based on a very simple model for determining the actual computational time of comparing each (query,frag). The results are generated and saved in the query\_\-frag\_\-isend\_\-matrix in an array before sending to the master. After the compute time has been generated, it is simulated through usleep().
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em work\_\-info\_\-p}]Pointer to work\_\-info structure. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!get_test_params@{get\_\-test\_\-params}}
+\index{get_test_params@{get\_\-test\_\-params}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int get\_\-test\_\-params (int {\em myid}, int {\em numprocs}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_161c6bf11404da23f92bd2ff27821b34}
+
+
+Before any work begins, the master distributes the test parameters to the workers through this function.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!increment_work@{increment\_\-work}}
+\index{increment_work@{increment\_\-work}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int increment\_\-work (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em last\_\-query\_\-result\_\-sent\_\-p}, struct \bf{work\_\-info\_\-s} $\ast$ {\em last\_\-query\_\-result\_\-comp\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{worker__help_8c_0745be01f02ec2934f1011f12d888161}
+
+
+Used by \doxyref{worker\_\-check\_\-isend\_\-results()}{p.}{worker__help_8c_96a210dab5fe40a84b24cada6de7462e} to check on the next possible piece of work that was completed. All (query,frag) tuples which were not checked by this worker are skipped in the \doxyref{worker\_\-check\_\-isend\_\-results()}{p.}{worker__help_8c_96a210dab5fe40a84b24cada6de7462e} function.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em last\_\-query\_\-result\_\-sent\_\-p}]Pointer to the work\_\-info structure of the last (query,frag) sent. \item[{\em last\_\-query\_\-result\_\-comp\_\-p}]Pointer to the work\_\-info structure of the next (query,frag) to be checked (changed in this function). \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!merge_results@{merge\_\-results}}
+\index{merge_results@{merge\_\-results}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int merge\_\-results (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_ce440b5131cc6f4d43173277259fc944}
+
+
+The results in the query\_\-frag\_\-isend\_\-matrix are first converted to a linked list. Then this linked list is merged with the previous results (if there are any), which are also in a linked list.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em work\_\-info\_\-p}]Pointer to work\_\-info structure. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!print_result@{print\_\-result}}
+\index{print_result@{print\_\-result}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-result (struct \bf{result\_\-s} $\ast$ {\em cur\_\-result\_\-p})}\label{worker__help_8c_d8429d14833d850c0f3f071880bf6441}
+
+
+Debugging function to print out the member variables of the result structure.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em cur\_\-result\_\-p}]Result which will have its member variables printed. \end{description}
+\end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!send_recv_work_req@{send\_\-recv\_\-work\_\-req}}
+\index{send_recv_work_req@{send\_\-recv\_\-work\_\-req}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int send\_\-recv\_\-work\_\-req (int {\em myid}, int $\ast$ {\em wait\_\-status\_\-p}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_e3c43967526bcb7e2c05d36854990a2c}
+
+
+The worker uses this function to send a request to the master process to request work. The wait\_\-status is encoded in the frag section if the query is done or all queries are done. Otherwise the worker gets the (query,frag) information.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status\_\-p}]Pointer to the wait status of the worker. \item[{\em work\_\-info\_\-p}]Pointer to work information structure. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_check_all_irecv@{worker\_\-check\_\-all\_\-irecv}}
+\index{worker_check_all_irecv@{worker\_\-check\_\-all\_\-irecv}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void worker\_\-check\_\-all\_\-irecv (int {\em myid}, int {\em numprocs}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_18eec021c54dddd519b819fa28ff4003}
+
+
+Do a final check on the query\_\-result\_\-list for any uncompleted irecvs. None should exist.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_check_all_isend@{worker\_\-check\_\-all\_\-isend}}
+\index{worker_check_all_isend@{worker\_\-check\_\-all\_\-isend}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void worker\_\-check\_\-all\_\-isend (int {\em myid}, int {\em numprocs}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_8d5c9557c44361908b0d95a7ea13c120}
+
+
+Do a final check on the query\_\-frag\_\-isend\_\-matrix for any uncompleted isends. None should exist.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_check_irecv_offsets@{worker\_\-check\_\-irecv\_\-offsets}}
+\index{worker_check_irecv_offsets@{worker\_\-check\_\-irecv\_\-offsets}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int worker\_\-check\_\-irecv\_\-offsets (int {\em myid}, int {\em wait\_\-status}, int {\em last\_\-query\_\-offset\_\-recv}, int $\ast$ {\em last\_\-query\_\-offset\_\-comp\_\-p}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_ff51d5ed7d6274863acfae7518accaa2}
+
+
+Check for all the irecvs from all queries that had results from this worker. Post irecvs for the actual offset array when the size irecv is completed. Check for both the sizes and the actual offset arrays.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status\_\-p}]Pointer to the wait status of the worker. \item[{\em last\_\-query\_\-offset\_\-recv}]Last query to look for offset irecv.\item[{\em last\_\-query\_\-offset\_\-comp\_\-p}]Pointer to information set in this function of the last query to look for offset irecvs. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_check_isend_results@{worker\_\-check\_\-isend\_\-results}}
+\index{worker_check_isend_results@{worker\_\-check\_\-isend\_\-results}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int worker\_\-check\_\-isend\_\-results (int {\em myid}, int {\em wait\_\-status}, struct \bf{work\_\-info\_\-s} $\ast$ {\em last\_\-query\_\-result\_\-sent\_\-p}, struct \bf{work\_\-info\_\-s} $\ast$ {\em last\_\-query\_\-result\_\-comp\_\-p}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_96a210dab5fe40a84b24cada6de7462e}
+
+
+The worker occasionally uses this function to check on the state of all its isends to the master for every (query,frag) it has processed. It checks the isends in order so that it can avoid checking a large amount of isend requests every time it is called.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status\_\-p}]Pointer to the wait status of the worker. \item[{\em last\_\-query\_\-result\_\-sent\_\-p}]Pointer to the work\_\-info structure of the last (query,frag) sent. \item[{\em last\_\-query\_\-result\_\-comp\_\-p}]Pointer to the work\_\-info structure of the next (query,frag) to be checked (changed in this function). \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_do_dummy_io@{worker\_\-do\_\-dummy\_\-io}}
+\index{worker_do_dummy_io@{worker\_\-do\_\-dummy\_\-io}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int worker\_\-do\_\-dummy\_\-io (int {\em myid}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{worker__help_8c_3f763b87bf4c0f92bc0505c4ce186598}
+
+
+If the worker-writing mode is chosen with collective I/O, the all workers must participate since it is in the same communication group. When it does not actually write any data, the worker will also call MPI\_\-File\_\-write\_\-all().
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_do_io@{worker\_\-do\_\-io}}
+\index{worker_do_io@{worker\_\-do\_\-io}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int worker\_\-do\_\-io (int {\em myid}, int {\em cur\_\-io\_\-query}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{worker__help_8c_8564100c3e86069a546650a09c3d8222}
+
+
+The noncontiguous memory regions of the result data for a completed query with the master's offset array are copied to a contiguous memory buffer. Disp is offset by the first offset to be written. A hindexed MPI Datatype is created for the possibly noncontiguous file regions. The write operation may be collective or individual depending on the test\_\-params. This function is used by \doxyref{do\_\-all\_\-worker\_\-io()}{p.}{worker__help_8c_ca670aa4ccec1df3b834ec98395719b5}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em cur\_\-io\_\-query}]The query for which we are going to write results. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_isend_results@{worker\_\-isend\_\-results}}
+\index{worker_isend_results@{worker\_\-isend\_\-results}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int worker\_\-isend\_\-results (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, int $\ast$ {\em last\_\-query\_\-offset\_\-recv\_\-p}, struct \bf{isend\_\-info\_\-s} $\ast$$\ast$ {\em query\_\-frag\_\-isend\_\-matrix}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_592e46c30e8bc597540756ddad3517cf}
+
+
+Given work info (query,frag), the worker sends the results to the master. The results are first copied into a contiguous buffer. The size is sent in a first isend and then the actual result is sent in the next isend. The result data is sent only in the master-writing mode.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em work\_\-info\_\-p}]Pointer to work information structure. \item[{\em last\_\-query\_\-offset\_\-recv\_\-p}]Pointer to information set in this function of the last query to look for offset irecv. \item[{\em query\_\-frag\_\-isend\_\-matrix}]Pointer to matrix of isend request information. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{worker_help.c@{worker\_\-help.c}!worker_post_irecv@{worker\_\-post\_\-irecv}}
+\index{worker_post_irecv@{worker\_\-post\_\-irecv}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int worker\_\-post\_\-irecv (int {\em myid}, struct \bf{work\_\-info\_\-s} $\ast$ {\em work\_\-info\_\-p}, struct \bf{query\_\-result\_\-s} $\ast$ {\em query\_\-result\_\-list}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker__help_8c_b07ca743d3a52f123f00baad6be7bb8e}
+
+
+If the worker is using parallel I/O, it will have to receive the offset array from the master. It posts a irecv here for this query. Since it is possible that a irecv was already posted for this query, this function should not be called in that case.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em work\_\-info\_\-p}]Pointer to work information structure. \item[{\em query\_\-result\_\-list}]The head of the result list for a query. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{worker_help.c@{worker\_\-help.c}!decode_worker_state@{decode\_\-worker\_\-state}}
+\index{decode_worker_state@{decode\_\-worker\_\-state}!worker_help.c@{worker\_\-help.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ \bf{decode\_\-worker\_\-state}[MAX\_\-WORKER\_\-STATE]}\label{worker__help_8c_c2c79eb96c5487595545713e78611d5b}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}
+    {
+        "NOT_USED",
+        "WAIT_RESULT_SIZE",
+        "WAIT_RESULT",
+        "DONE_RESULT",
+        "START_IRECV",
+        "WAIT_OFFSET_LIST_COUNT",
+        "WAIT_OFFSET_LIST",
+        "DONE_OFFSET_LIST",
+        "IO_FINISHED"
+    }
+\end{verbatim}\end{Code}

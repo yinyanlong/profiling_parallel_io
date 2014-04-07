@@ -1,0 +1,26 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker.c File Reference}
+\label{worker_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/worker.c}}
+{\tt \#include \char`\"{}worker.h\char`\"{}}\par
+{\tt \#include \char`\"{}worker\_\-help.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{worker} (int myid, int numprocs, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{worker.c@{worker.c}!worker@{worker}}
+\index{worker@{worker}!worker.c@{worker.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int worker (int {\em myid}, int {\em numprocs}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{worker_8c_015e5ab7dd7d165f8b2d73d73e3a1a41}
+
+
+This handles the high-level functions of the worker process during the majority of the application run. There is a setup phase, followed by a work phase, and then cleanup operations.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}

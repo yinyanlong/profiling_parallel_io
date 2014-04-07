@@ -1,0 +1,24 @@
+# Supported platforms
+# MPICH2
+cc= /your/path/to/install/bin/mpicc
+IOSIG_CFLAGS = -w -finstrument-functions
+IOSIG_LDFLAGS = -Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64 -L $(IOSIG_HOME)/src/collect -liosig
+
+CFLAGS	= -Wall -Wstrict-prototypes -g $(IOSIG_CFLAGS)
+
+EXECUTABLE = s3asim-nj s3asim-test
+
+all: $(EXECUTABLE)
+
+s3asim-j: src/*.c src/*.h
+	$(cc) -DHAVE_MPE $(CFLAGS) -o s3asim-j src/*.c -lmpe -llmpe -lm
+
+s3asim-nj: src/*.c src/*.h
+	$(cc) $(CFLAGS) -o s3asim-nj src/*.c -lm $(IOSIG_LDFLAGS)
+
+s3asim-test: src/*.c src/*.h
+	$(cc) -DTEST_MODE $(CFLAGS) -o s3asim-test src/*.c -lm $(IOSIG_LDFLAGS)
+
+
+clean:
+	rm -f db/*~ scripts/*~ src/*~ src/*.o *.o *~ core $(EXECUTABLE) s3asim.clog2 s3asim.slog2

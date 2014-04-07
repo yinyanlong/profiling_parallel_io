@@ -1,0 +1,113 @@
+Compiling and Installation:
+
+Modify the Makefile to point to your MPI install directory.  Type
+'make' to try to compile the program.  If this is successful, the
+program will compile and generate two binaries, s3asim-nj and
+s3asim-test.  s3asim-nj doesn't use mpe, which will enable it to run
+on MPI implementations which don't implement MPE.  s3asim-test turns
+off most debugging for benchmark use. If you have MPE support in your
+MPI installation, try 'make s3asim-j'.
+
+Test simulation goals:
+
+S3asim is a sequence similarity search algorithm simulator.  Given
+input query sequences, it divides up the database sequences into
+fragments.  This parallelization technique is called "database
+segmentation."  A master process delegates work among its numerous
+workers.  Workers request work (query,frag) information from the
+master.  They search the query against the database fragment assigned.
+The results are sent to the master for sorting according to score.
+Finally, the results are written to a single file using different I/O
+strategies.  The application phases are described more formally below.
+
+Work assignments: 
+
+Master node - Assigns work for workers
+Worker node - Does work assigned by the master
+
+Application phases:
+
+Data distribution
+  Delegation of input queries and database fragments to workers.
+Computation
+  Performs the sequence similarity search on the query and assigned
+  fragments and save the local results.
+Gather results
+  Collect the aggregate results.
+Process results
+  Sort them according to score and format them for output.
+I/O
+  Write the results to storage ordered by score (i.e. Google for
+  biologists).
+
+Test parameters:
+
+The fastest way to run s3asim is to use the default parameters with
+at least 2 processes.  Simply type:
+
+mpirun -n <numprocs> ./s3asim-nj 
+
+There are many options that can be used with s3asim.  
+  -h, --help              display this help and exit
+  -f, --total-fragments   number of fragments of data (default 4)
+  -c, --query-count       number of total queries (default 2)
+  -q, --query-size-min    min size of each query (default 10)
+  -Q, --query-size-max    max size of each query (default 1000)
+  -d, --database-sequence-size-min
+                 min size of each database-sequence (default 10)
+  -D, --database-sequence-size-max 
+                 max size of each database-sequence (default 1000)
+  -y, --query_params_file query params file (default N/A)
+                          (-q and -Q options will be ignored)
+  -Y, --db_params_file    db params file (default N/A)
+                          (-d and -D options will be ignored)
+  -r, --result-size-min   min size of each result (default 10)
+  -m, --result-count-min  min count of each result (default 10)
+  -M, --result-count-max  max count of each result (default 1000)
+  -K, --compute-speed     speedup of compute time (default 1.0)
+  -i, --io-method         note: If using serial I/O, only
+                          individual I/O can be used. (default)
+                          0 - individual I/O
+                          1 - collective I/O
+  -p, --parallel-io       1 - use parallel I/O  (default 0)
+  -s, --query-sync        1 - sync per query (default 0)
+  -o, --output_file       output file (default test)
+  -I, --no_io             0 - default 1 - turn I/O off for testing
+  -a, --atomicity         0 - default 1 - turn atomicity on
+  -e, --end_write         1 - write all data at end
+  -H, --mpi-io-hint       set as many MPI-IO hints as is desired
+                          through repeated use (interface is 
+                          key=value) - for example, to turn off 
+                          data sieving for writes in ROMIO, use
+                          "-H romio_ds_write=enable"
+
+Database sequence length generation:
+
+There are two methods to handle the random generation of the lengths
+of the database sequences.
+
+1) Uniform distribution - uniform distribution between
+'database-sequence-size-min' and 'database-sequence-size-max'.  For
+example, if database-sequence-size-min=0 and
+database-sequence-size-max=10, you can expect to get anything between
+0 to 10, with an average of 5.
+
+2) Histogram based distribution - Use an input histogram file in the
+correct format to generate database sequence lengths based on
+empirical data from a real database.  Look in the 'db' directory as it
+has histogram data from the nt, nr, and yeast database.  There is a
+script called 'gen_hist.pl' which can generate histogram data in the
+correct format from a bio database for s3asim.
+
+Additional documentation:
+
+The 'doc' subfolder contains a Doxyfile and the generated doxygen
+output for the source code, which will help in understanding how the
+code works.  Additionally, a paper has been published based on the
+results of the simulator and is included as 2006.hpdc.pdf.  The paper
+reference is as follows:
+
+Avery Ching, Wu-chun Feng, Heshan Lin, Xiaosong Ma, and Alok
+Choudhary. Exploring I/O strategies for parallel sequence database
+search tools with S3aSim. In Proceedings of the International
+Symposium on High Performance Distributed Computing, June 2006.

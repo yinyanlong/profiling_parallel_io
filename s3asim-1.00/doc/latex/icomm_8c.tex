@@ -1,0 +1,105 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/icomm.c File Reference}
+\label{icomm_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/icomm.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/icomm.c}}
+{\tt \#include \char`\"{}icomm.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{ISEND}~0
+\item 
+\#define \bf{IRECV}~1
+\item 
+\#define \bf{MAX\_\-ICOMM}~2
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+static int \bf{check\_\-isendrecv} (int icomm\_\-type, int myid, int wait\_\-status, int $\ast$flag\_\-p, MPI\_\-Request $\ast$req\_\-p, int $\ast$req\_\-status\_\-p, int new\_\-req\_\-status, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{check\_\-isend} (int myid, int wait\_\-status, int $\ast$flag\_\-p, MPI\_\-Request $\ast$req\_\-p, int $\ast$req\_\-status\_\-p, int new\_\-req\_\-status, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\item 
+int \bf{check\_\-irecv} (int myid, int wait\_\-status, int $\ast$flag\_\-p, MPI\_\-Request $\ast$req\_\-p, int $\ast$req\_\-status\_\-p, int new\_\-req\_\-status, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events\_\-p, struct \bf{test\_\-params\_\-s} $\ast$test\_\-params\_\-p)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+static const char $\ast$ \bf{decode\_\-icomm} [MAX\_\-ICOMM]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{icomm.c@{icomm.c}!IRECV@{IRECV}}
+\index{IRECV@{IRECV}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define IRECV~1}\label{icomm_8c_fbf7b6f2cf74043880e291a37f918d4a}
+
+
+\index{icomm.c@{icomm.c}!ISEND@{ISEND}}
+\index{ISEND@{ISEND}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ISEND~0}\label{icomm_8c_8815304f6214aced690f7000d648f4c5}
+
+
+\index{icomm.c@{icomm.c}!MAX_ICOMM@{MAX\_\-ICOMM}}
+\index{MAX_ICOMM@{MAX\_\-ICOMM}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-ICOMM~2}\label{icomm_8c_e0794692029ce8388e222a321dbb1064}
+
+
+
+
+\subsection{Function Documentation}
+\index{icomm.c@{icomm.c}!check_irecv@{check\_\-irecv}}
+\index{check_irecv@{check\_\-irecv}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int check\_\-irecv (int {\em myid}, int {\em wait\_\-status}, int $\ast$ {\em flag\_\-p}, MPI\_\-Request $\ast$ {\em req\_\-p}, int $\ast$ {\em req\_\-status\_\-p}, int {\em new\_\-req\_\-status}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{icomm_8c_bdc70cb65238c08d628ad395a95d975d}
+
+
+Check irecv request, shared by both the master and workers. It depends heavily on \doxyref{check\_\-isendrecv()}{p.}{icomm_8c_8835cd073ab3205c490eb76a2d26912b}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status}]Status of the master/worker processes. \item[{\em flag\_\-p}]Pointer to request completion. \item[{\em req\_\-p}]Pointer to MPI request. \item[{\em req\_\-status\_\-p}]Pointer to current state of request. \item[{\em new\_\-req\_\-status}]The next state for the request (if successful). \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{icomm.c@{icomm.c}!check_isend@{check\_\-isend}}
+\index{check_isend@{check\_\-isend}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int check\_\-isend (int {\em myid}, int {\em wait\_\-status}, int $\ast$ {\em flag\_\-p}, MPI\_\-Request $\ast$ {\em req\_\-p}, int $\ast$ {\em req\_\-status\_\-p}, int {\em new\_\-req\_\-status}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})}\label{icomm_8c_52045014ed68f3aae5f517ef65c7b83f}
+
+
+Check isend request, shared by both the master and workers. It depends heavily on \doxyref{check\_\-isendrecv()}{p.}{icomm_8c_8835cd073ab3205c490eb76a2d26912b}.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em wait\_\-status}]Status of the master/worker processes. \item[{\em flag\_\-p}]Pointer to request completion. \item[{\em req\_\-p}]Pointer to MPI request. \item[{\em req\_\-status\_\-p}]Pointer to current state of request. \item[{\em new\_\-req\_\-status}]The next state for the request (if successful). \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{icomm.c@{icomm.c}!check_isendrecv@{check\_\-isendrecv}}
+\index{check_isendrecv@{check\_\-isendrecv}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}static int check\_\-isendrecv (int {\em icomm\_\-type}, int {\em myid}, int {\em wait\_\-status}, int $\ast$ {\em flag\_\-p}, MPI\_\-Request $\ast$ {\em req\_\-p}, int $\ast$ {\em req\_\-status\_\-p}, int {\em new\_\-req\_\-status}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events\_\-p}, struct \bf{test\_\-params\_\-s} $\ast$ {\em test\_\-params\_\-p})\hspace{0.3cm}{\tt  [static]}}\label{icomm_8c_8835cd073ab3205c490eb76a2d26912b}
+
+
+Check either an isend or irecv request to gauge progress. This function is called by \doxyref{check\_\-irecv()}{p.}{icomm_8c_bdc70cb65238c08d628ad395a95d975d} and \doxyref{check\_\-isend()}{p.}{icomm_8c_52045014ed68f3aae5f517ef65c7b83f} functions.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em icomm\_\-type}]Either ISEND or IRECV. \item[{\em myid}]MPI myid. \item[{\em wait\_\-status}]Status of the master/worker processes. \item[{\em flag\_\-p}]Pointer to request completion. \item[{\em req\_\-p}]Pointer to MPI request. \item[{\em req\_\-status\_\-p}]Pointer to current state of request. \item[{\em new\_\-req\_\-status}]The next state for the request (if successful). \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \item[{\em test\_\-params\_\-p}]Pointer to test\_\-params. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{icomm.c@{icomm.c}!decode_icomm@{decode\_\-icomm}}
+\index{decode_icomm@{decode\_\-icomm}!icomm.c@{icomm.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ \bf{decode\_\-icomm}[MAX\_\-ICOMM]\hspace{0.3cm}{\tt  [static]}}\label{icomm_8c_dd611e5bf0deb890efa2cb8d31214481}
+
+
+\textbf{Initial value:}
+
+\begin{Code}\begin{verbatim}
+    {
+        "ISEND",
+        "IRECV"
+    }
+\end{verbatim}\end{Code}

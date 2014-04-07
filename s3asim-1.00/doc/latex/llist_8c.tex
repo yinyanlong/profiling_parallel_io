@@ -1,0 +1,135 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/llist.c File Reference}
+\label{llist_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/llist.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/llist.c}}
+{\tt \#include \char`\"{}llist.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \bf{LIST1}~1
+\item 
+\#define \bf{LIST2}~2
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\bf{lresult\_\-s} $\ast$ \bf{merge\_\-lresult} (struct \bf{lresult\_\-s} $\ast$list1\_\-p, struct \bf{lresult\_\-s} $\ast$list2\_\-p)
+\item 
+void \bf{free\_\-lresult\_\-list} (struct \bf{lresult\_\-s} $\ast$list\_\-head)
+\item 
+int \bf{cpy\_\-result} (struct \bf{result\_\-s} $\ast$dest\_\-result\_\-p, struct \bf{result\_\-s} $\ast$src\_\-result\_\-p)
+\item 
+void \bf{print\_\-lresult\_\-list} (struct \bf{lresult\_\-s} $\ast$list\_\-head)
+\item 
+\bf{lresult\_\-s} $\ast$ \bf{create\_\-list\_\-head} (struct \bf{result\_\-s} $\ast$result\_\-p)
+\item 
+void \bf{push\_\-list} (struct \bf{lresult\_\-s} $\ast$list\_\-head, struct \bf{result\_\-s} $\ast$result\_\-p)
+\item 
+\bf{lresult\_\-s} $\ast$ \bf{delete\_\-list\_\-head} (struct \bf{lresult\_\-s} $\ast$list\_\-head)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{llist.c@{llist.c}!LIST1@{LIST1}}
+\index{LIST1@{LIST1}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIST1~1}\label{llist_8c_b15b0d7accecbf48738cf8e183d40d90}
+
+
+\index{llist.c@{llist.c}!LIST2@{LIST2}}
+\index{LIST2@{LIST2}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LIST2~2}\label{llist_8c_6d580a8fdbef081d9a29102d9ccd9c20}
+
+
+
+
+\subsection{Function Documentation}
+\index{llist.c@{llist.c}!cpy_result@{cpy\_\-result}}
+\index{cpy_result@{cpy\_\-result}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int cpy\_\-result (struct \bf{result\_\-s} $\ast$ {\em dest\_\-result\_\-p}, struct \bf{result\_\-s} $\ast$ {\em src\_\-result\_\-p})}\label{llist_8c_b0d6e6a78fceaae23acdbf75b6ad5344}
+
+
+Copy information from one result to another. If the src result has result data, copy that as well.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dest\_\-result\_\-p}]Result which will be overwritten. \item[{\em src\_\-result\_\-p}]Result which will be used as the source. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{llist.c@{llist.c}!create_list_head@{create\_\-list\_\-head}}
+\index{create_list_head@{create\_\-list\_\-head}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \bf{lresult\_\-s}$\ast$ create\_\-list\_\-head (struct \bf{result\_\-s} $\ast$ {\em result\_\-p})}\label{llist_8c_ad1ce48b90bbd19f253efaf8ec25a085}
+
+
+Allocate and fill in the attributes for a list head from a result.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em result\_\-p}]Result information to be added to the list head. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The list head. \end{Desc}
+\index{llist.c@{llist.c}!delete_list_head@{delete\_\-list\_\-head}}
+\index{delete_list_head@{delete\_\-list\_\-head}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \bf{lresult\_\-s}$\ast$ delete\_\-list\_\-head (struct \bf{lresult\_\-s} $\ast$ {\em list\_\-head})}\label{llist_8c_6010ebe958b187cb14f5ce102ecdaf59}
+
+
+Attempts to delete the list\_\-head. It could return NULL, which indicates that the list no longer exists.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em list\_\-head}]Pointer to the head of a result list. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The new list head. \end{Desc}
+\index{llist.c@{llist.c}!free_lresult_list@{free\_\-lresult\_\-list}}
+\index{free_lresult_list@{free\_\-lresult\_\-list}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\_\-lresult\_\-list (struct \bf{lresult\_\-s} $\ast$ {\em list\_\-head})}\label{llist_8c_9ccdd6220d51b5f2de19c0b94cd13223}
+
+
+For every element in the result list, it frees the data of each list element and then frees the list element itself.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em list\_\-head}]Result list to be freed. \end{description}
+\end{Desc}
+\index{llist.c@{llist.c}!merge_lresult@{merge\_\-lresult}}
+\index{merge_lresult@{merge\_\-lresult}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \bf{lresult\_\-s}$\ast$ merge\_\-lresult (struct \bf{lresult\_\-s} $\ast$ {\em list1\_\-p}, struct \bf{lresult\_\-s} $\ast$ {\em list2\_\-p})}\label{llist_8c_728f7e25f4f7dc970864ef9705192840}
+
+
+Takes two locally ordered linked lists and merges them into one sorted linked list which is returned. The ordering is based on the score and then secondly the result\_\-id. The memory from the input result lists is freed.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em list1\_\-p}]Locally ordered linked list 1. \item[{\em list2\_\-p}]Locally ordered linked list 2. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Ordered merged linked list. \end{Desc}
+\index{llist.c@{llist.c}!print_lresult_list@{print\_\-lresult\_\-list}}
+\index{print_lresult_list@{print\_\-lresult\_\-list}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-lresult\_\-list (struct \bf{lresult\_\-s} $\ast$ {\em list\_\-head})}\label{llist_8c_4f96c1bf84a36cd8002686a09f73619a}
+
+
+Print result attributes and data of an entire result list.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em list\_\-head}]The head pointer of a result list. \end{description}
+\end{Desc}
+\index{llist.c@{llist.c}!push_list@{push\_\-list}}
+\index{push_list@{push\_\-list}!llist.c@{llist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void push\_\-list (struct \bf{lresult\_\-s} $\ast$ {\em list\_\-head}, struct \bf{result\_\-s} $\ast$ {\em result\_\-p})}\label{llist_8c_f275086644ade79186d4cc3bcc25b635}
+
+
+Add an element to the result list.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em list\_\-head}]A result list pointer, where the next pointer will point to the new element. \item[{\em result\_\-p}]Result information to be added to the new element in the list. \end{description}
+\end{Desc}

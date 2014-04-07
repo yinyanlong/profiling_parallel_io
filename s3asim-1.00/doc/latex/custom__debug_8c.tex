@@ -1,0 +1,45 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom\_\-debug.c File Reference}
+\label{custom__debug_8c}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom_debug.c@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/custom\_\-debug.c}}
+{\tt \#include \char`\"{}custom\_\-debug.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{vsnprintf} (char $\ast$str, size\_\-t size, const char $\ast$format, va\_\-list ap)
+\item 
+int \bf{custom\_\-debug} (uint64\_\-t mask, const char $\ast$format,...)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int \bf{global\_\-debug\_\-mask}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{custom_debug.c@{custom\_\-debug.c}!custom_debug@{custom\_\-debug}}
+\index{custom_debug@{custom\_\-debug}!custom_debug.c@{custom\_\-debug.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int custom\_\-debug (uint64\_\-t {\em mask}, const char $\ast$ {\em format},  {\em ...})}\label{custom__debug_8c_a4090d810165be7e73bbed83b6ddde2e}
+
+
+A custom function for debugging based on a debug mask compared against a global debug mask.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mask}]A mask to compare against the global\_\-debug\_\-mask. \item[{\em format}]Format string for output. \item[{\em ...}]Additional arguments for variables to be displayed. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{custom_debug.c@{custom\_\-debug.c}!vsnprintf@{vsnprintf}}
+\index{vsnprintf@{vsnprintf}!custom_debug.c@{custom\_\-debug.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int vsnprintf (char $\ast$ {\em str}, size\_\-t {\em size}, const char $\ast$ {\em format}, va\_\-list {\em ap})}\label{custom__debug_8c_2cadafbeb2d6e0d5781f6e5106d41fc2}
+
+
+This prototype is defined here to get rid of the ANSI warning 
+
+\subsection{Variable Documentation}
+\index{custom_debug.c@{custom\_\-debug.c}!global_debug_mask@{global\_\-debug\_\-mask}}
+\index{global_debug_mask@{global\_\-debug\_\-mask}!custom_debug.c@{custom\_\-debug.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int \bf{global\_\-debug\_\-mask}}\label{custom__debug_8c_9829777e06287f4b4630251e5844b084}
+
+

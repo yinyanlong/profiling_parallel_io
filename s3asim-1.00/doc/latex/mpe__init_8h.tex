@@ -1,0 +1,87 @@
+\section{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/mpe\_\-init.h File Reference}
+\label{mpe__init_8h}\index{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/mpe_init.h@{/home/aching/Avery/Work.School/Research/pvfs2-lock/s3asim/src/mpe\_\-init.h}}
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}mpi.h\char`\"{}}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$sys/time.h$>$}\par
+\subsection*{Data Structures}
+\begin{CompactItemize}
+\item 
+struct \bf{mpe\_\-events\_\-s}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \bf{timing\_\-reduce} (int myid, int numprocs, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events)
+\item 
+void \bf{print\_\-timing} (int myid, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events)
+\item 
+int \bf{custom\_\-MPE\_\-Log\_\-event} (int event, int data, char $\ast$string, struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events)
+\item 
+int \bf{init\_\-mpe\_\-events} (struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events)
+\item 
+int \bf{init\_\-mpe\_\-describe\_\-state} (struct \bf{mpe\_\-events\_\-s} $\ast$mpe\_\-events)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{mpe_init.h@{mpe\_\-init.h}!custom_MPE_Log_event@{custom\_\-MPE\_\-Log\_\-event}}
+\index{custom_MPE_Log_event@{custom\_\-MPE\_\-Log\_\-event}!mpe_init.h@{mpe\_\-init.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int custom\_\-MPE\_\-Log\_\-event (int {\em event}, int {\em data}, char $\ast$ {\em string}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events})}\label{mpe__init_8h_ca0bad04081205f395d4fbb25624bb0f}
+
+
+A set of events are defined by another function. Using the event numbers, the correct timing procedure is done here. Start or stop timers and add to profiling information.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em event}]Event number to process. \item[{\em data}]If MPE is used, this int is logged. \item[{\em string}]If MPE is used, this string is logged. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{mpe_init.h@{mpe\_\-init.h}!init_mpe_describe_state@{init\_\-mpe\_\-describe\_\-state}}
+\index{init_mpe_describe_state@{init\_\-mpe\_\-describe\_\-state}!mpe_init.h@{mpe\_\-init.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int init\_\-mpe\_\-describe\_\-state (struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events})}\label{mpe__init_8h_ca607055c9c3a4f21145349df1b3ac04}
+
+
+\index{mpe_init.h@{mpe\_\-init.h}!init_mpe_events@{init\_\-mpe\_\-events}}
+\index{init_mpe_events@{init\_\-mpe\_\-events}!mpe_init.h@{mpe\_\-init.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int init\_\-mpe\_\-events (struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events})}\label{mpe__init_8h_96fb9612d0256b13c9d195ff01412f41}
+
+
+If MPE is used, this function defines the event numbers with the MPE\_\-Log\_\-get\_\-event\_\-number() function. Otherwise, the event numbers are predefined.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}
+\index{mpe_init.h@{mpe\_\-init.h}!print_timing@{print\_\-timing}}
+\index{print_timing@{print\_\-timing}!mpe_init.h@{mpe\_\-init.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void print\_\-timing (int {\em myid}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events})}\label{mpe__init_8h_7c07a6204913a60e91dd3d81e8a970c3}
+
+
+Print the timing information for the mpe\_\-events structure. This is generally used for debugging.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \end{description}
+\end{Desc}
+\index{mpe_init.h@{mpe\_\-init.h}!timing_reduce@{timing\_\-reduce}}
+\index{timing_reduce@{timing\_\-reduce}!mpe_init.h@{mpe\_\-init.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int timing\_\-reduce (int {\em myid}, int {\em numprocs}, struct \bf{mpe\_\-events\_\-s} $\ast$ {\em mpe\_\-events})}\label{mpe__init_8h_8ef68542f1212a1cc22de50f891678f5}
+
+
+All MPE information and timing information is stored in the mpe\_\-events structure. The timings are reduced to the master and are printed by the master.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em myid}]MPI myid. \item[{\em numprocs}]Number of processes used. \item[{\em mpe\_\-events\_\-p}]Pointer to timing structure. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 on success. \end{Desc}

@@ -2,7 +2,7 @@
 mpi_dir = /mnt/common/akougkas/programs_src/mpich2-1.4.1p1
 cc	= /mnt/common/akougkas/install/bin/mpicc
 IOSIG_CFLAGS = -w -finstrument-functions
-IOSIG_LDFLAGS = -Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64 -L /mnt/common/akougkas/programs_src/iosig-1.4.01/src/collect -liosig
+IOSIG_LDFLAGS = -Wl,-wrap,fopen,-wrap,fopen64,-wrap,fclose,-wrap,fread,-wrap,fwrite,-wrap,fseek,-wrap,open,-wrap,close,-wrap,read,-wrap,write,-wrap,lseek,-wrap,lseek64,-wrap,open64 -L $(IOSIG_HOME)/src/collect -liosig
 CFLAGS	= -Wall -Wstrict-prototypes -g $(IOSIG_CFLAGS)
 
 EXECUTABLE = hpio hpio-small

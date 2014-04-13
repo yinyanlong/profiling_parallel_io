@@ -26,6 +26,6 @@ Read README for more detailed test parameters
 
 #Running the benchmark
 
-    $ mpirun -np <number of processes> ./hpio-small -n 1111 -m 11 -b 111
+    $ mpirun -np <number of processes> ./hpio-small -n 0010 -m 10 -b 111 -p 1048576 -s 131072
 
 
